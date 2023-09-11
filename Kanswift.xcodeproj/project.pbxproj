@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */; };
 		B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824162AAF82F1007DCDC3 /* ContentView.swift */; };
-		B77824192AAF82F1007DCDC3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824182AAF82F1007DCDC3 /* Item.swift */; };
+		B77824192AAF82F1007DCDC3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824182AAF82F1007DCDC3 /* Card.swift */; };
 		B778241B2AAF82F3007DCDC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241A2AAF82F3007DCDC3 /* Assets.xcassets */; };
 		B778241E2AAF82F3007DCDC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */; };
+		B778242C2AAFC54F007DCDC3 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778242B2AAFC54F007DCDC3 /* CardEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B77824112AAF82F1007DCDC3 /* Kanswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanswiftApp.swift; sourceTree = "<group>"; };
 		B77824162AAF82F1007DCDC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B77824182AAF82F1007DCDC3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B77824182AAF82F1007DCDC3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		B778241A2AAF82F3007DCDC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kanswift.entitlements; sourceTree = "<group>"; };
+		B778242B2AAFC54F007DCDC3 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,8 @@
 			children = (
 				B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */,
 				B77824162AAF82F1007DCDC3 /* ContentView.swift */,
-				B77824182AAF82F1007DCDC3 /* Item.swift */,
+				B77824182AAF82F1007DCDC3 /* Card.swift */,
+				B778242B2AAFC54F007DCDC3 /* CardEditor.swift */,
 				B778241A2AAF82F3007DCDC3 /* Assets.xcassets */,
 				B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */,
 				B778241C2AAF82F3007DCDC3 /* Preview Content */,
@@ -143,7 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */,
-				B77824192AAF82F1007DCDC3 /* Item.swift in Sources */,
+				B778242C2AAFC54F007DCDC3 /* CardEditor.swift in Sources */,
+				B77824192AAF82F1007DCDC3 /* Card.swift in Sources */,
 				B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
