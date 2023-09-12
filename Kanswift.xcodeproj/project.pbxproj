@@ -58,11 +58,9 @@
 		B77824132AAF82F1007DCDC3 /* Kanswift */ = {
 			isa = PBXGroup;
 			children = (
+				B7ED2C3C2AB03CF300E7C5D9 /* Views */,
+				B7ED2C3B2AB03CDB00E7C5D9 /* Model */,
 				B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */,
-				B77824162AAF82F1007DCDC3 /* ContentView.swift */,
-				B7A6DCA72AB031AA00A7C03B /* CardView.swift */,
-				B77824182AAF82F1007DCDC3 /* Card.swift */,
-				B778242B2AAFC54F007DCDC3 /* CardEditor.swift */,
 				B778241A2AAF82F3007DCDC3 /* Assets.xcassets */,
 				B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */,
 				B778241C2AAF82F3007DCDC3 /* Preview Content */,
@@ -76,6 +74,24 @@
 				B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B7ED2C3B2AB03CDB00E7C5D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B77824182AAF82F1007DCDC3 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B7ED2C3C2AB03CF300E7C5D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B77824162AAF82F1007DCDC3 /* ContentView.swift */,
+				B7A6DCA72AB031AA00A7C03B /* CardView.swift */,
+				B778242B2AAFC54F007DCDC3 /* CardEditor.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
