@@ -20,11 +20,11 @@ struct CardEditor: View {
             VStack {
                 TextField("Card Description", text: $cardDescription).padding(10)
                 
-                Picker("State", selection: $selectedCardState) {
+                Picker("State: ", selection: $selectedCardState) {
                     ForEach(cardStates, id: \.self) { state in
                         Text(state)
                     }
-                }
+                }.padding(10)
                 
                 Button("Save") {
                     let newCard = Card(cardDescription: cardDescription, cardState: selectedCardState, timestamp: Date())
@@ -37,6 +37,6 @@ struct CardEditor: View {
     }
 }
 
-//#Preview() {
-//    CardEditor(isPresented: Binding<Any><true>)
-//}
+#Preview() {
+    CardEditor(isPresented: .constant(true))
+}
