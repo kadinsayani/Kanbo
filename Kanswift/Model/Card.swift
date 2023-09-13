@@ -15,7 +15,7 @@ final class Card {
     var cardState: String
     var timestamp: Date
     
-    init(cardDescription: String, cardState: String, timestamp: Date = Date()) {
+    init(cardDescription: String = "", cardState: String = "Backlog", timestamp: Date = Date()) {
         self.id = UUID()
         self.cardDescription = cardDescription
         self.cardState = cardState

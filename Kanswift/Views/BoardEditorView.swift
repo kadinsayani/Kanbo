@@ -19,7 +19,7 @@ struct BoardEditorView: View {
                 TextField("Board Title", text: $title).padding(10)
                 
                 Button("Save") {
-                    let newBoard = Board(title: title, timestamp: Date())
+                    let newBoard = Board(title: title, timestamp: Date(), cards: [])
                     modelContext.insert(newBoard)
                     isPresented = false
                 }
@@ -29,6 +29,6 @@ struct BoardEditorView: View {
     }
 }
 
-#Preview() {
-    CardEditorView(isPresented: .constant(true))
-}
+//#Preview() {
+//    CardEditorView(isPresented: .constant(true))
+//}

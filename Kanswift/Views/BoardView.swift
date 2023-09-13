@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct BoardView: View {
+    @State private var isAddingCard = false
+    //    @State private var selectedCard: Card?
+    
+    var board: Board
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            HStack {
+                List() {
+                    ForEach(board.cards) { card in
+                        CardView(card: card)
+                    }
+                }
+            }
+        }.toolbar {
+            ToolbarItemGroup {
+                Button(action: addCard) {
+                    Label("Add Card", systemImage: "plus")
+                }
+                Button(action: deleteCard) {
+                    Label("Delete Card", systemImage: "trash")
+                }
+            }
+        }.sheet(isPresented: $isAddingCard) {
+            CardEditorView(board: board, isPresented: $isAddingCard)
+        }
+    }
+    
+    private func addCard() {
+        isAddingCard = true
+    }
+    
+    private func deleteCard() {
+        
     }
 }
 
-#Preview {
-    BoardView()
-}
+//#Preview {
+//    BoardView()
+//}

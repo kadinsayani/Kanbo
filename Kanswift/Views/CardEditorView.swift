@@ -11,6 +11,7 @@ import SwiftData
 struct CardEditorView: View {
     @Environment(\.modelContext) private var modelContext
     
+    var board: Board
     @Binding var isPresented: Bool
     @State private var cardDescription = ""
     @State private var cardStates = ["Backlog", "Doing", "Review", "Done"]
@@ -28,7 +29,12 @@ struct CardEditorView: View {
                 
                 Button("Save") {
                     let newCard = Card(cardDescription: cardDescription, cardState: selectedCardState, timestamp: Date())
-                    modelContext.insert(newCard)
+                    board.cards.append(newCard)
+                    do {
+                        try modelContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
                     isPresented = false
                 }
                 .padding()
@@ -37,6 +43,6 @@ struct CardEditorView: View {
     }
 }
 
-#Preview() {
-    CardEditorView(isPresented: .constant(true))
-}
+//#Preview() {
+//    CardEditorView(isPresented: .constant(true))
+//}

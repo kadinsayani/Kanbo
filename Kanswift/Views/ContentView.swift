@@ -10,11 +10,8 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-//    @Query(sort: \Card.timestamp, animation: .smooth) private var cards: [Card]
     @Query(sort: \Board.timestamp, animation: .smooth) private var boards: [Board]
     
-//    @State private var isAddingCard = false
-//    @State private var selectedCard: Card?
     @State private var isAddingBoard = false
     @State private var selectedBoard: Board?
 
@@ -23,7 +20,7 @@ struct ContentView: View {
             List(selection: $selectedBoard) {
                 ForEach(boards) { board in
                     NavigationLink {
-                        Text(board.title)
+                        BoardView(board: board)
                     } label: {
                         Text(board.title)
                     }
@@ -33,10 +30,10 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button(action: addBoard) {
-                        Label("Add", systemImage: "plus")
+                        Label("Add Board", systemImage: "plus")
                     }
                     Button(action: deleteBoard) {
-                        Label("Delete", systemImage: "trash")
+                        Label("Delete Board", systemImage: "trash")
                     }
                 }
             }

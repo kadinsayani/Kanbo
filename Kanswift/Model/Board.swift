@@ -12,9 +12,11 @@ import SwiftData
 final class Board {
     var title: String
     var timestamp: Date
+    var cards: [Card]
     
-    init(title: String, timestamp: Date = Date()) {
+    init(title: String, timestamp: Date = Date(), cards: [Card] = []) {
         self.title = title
         self.timestamp = timestamp
+        self.cards = cards
     }
 }
