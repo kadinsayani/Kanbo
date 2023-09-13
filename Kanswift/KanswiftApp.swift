@@ -13,6 +13,7 @@ struct KanswiftApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Card.self,
+            Board.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

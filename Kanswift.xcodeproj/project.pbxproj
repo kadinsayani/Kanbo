@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7704DBD2AB16D7500B9A4B4 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */; };
 		B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */; };
 		B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824162AAF82F1007DCDC3 /* ContentView.swift */; };
 		B77824192AAF82F1007DCDC3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824182AAF82F1007DCDC3 /* Card.swift */; };
 		B778241B2AAF82F3007DCDC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241A2AAF82F3007DCDC3 /* Assets.xcassets */; };
 		B778241E2AAF82F3007DCDC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */; };
-		B778242C2AAFC54F007DCDC3 /* CardEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778242B2AAFC54F007DCDC3 /* CardEditor.swift */; };
+		B778242C2AAFC54F007DCDC3 /* CardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */; };
 		B7A6DCA82AB031AA00A7C03B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A6DCA72AB031AA00A7C03B /* CardView.swift */; };
+		B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC22AB24D9B007838A5 /* Board.swift */; };
+		B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		B77824112AAF82F1007DCDC3 /* Kanswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanswiftApp.swift; sourceTree = "<group>"; };
 		B77824162AAF82F1007DCDC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,8 +28,10 @@
 		B778241A2AAF82F3007DCDC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kanswift.entitlements; sourceTree = "<group>"; };
-		B778242B2AAFC54F007DCDC3 /* CardEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditor.swift; sourceTree = "<group>"; };
+		B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditorView.swift; sourceTree = "<group>"; };
 		B7A6DCA72AB031AA00A7C03B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B7CAADC22AB24D9B007838A5 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				B77824182AAF82F1007DCDC3 /* Card.swift */,
+				B7CAADC22AB24D9B007838A5 /* Board.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,7 +96,9 @@
 			children = (
 				B77824162AAF82F1007DCDC3 /* ContentView.swift */,
 				B7A6DCA72AB031AA00A7C03B /* CardView.swift */,
-				B778242B2AAFC54F007DCDC3 /* CardEditor.swift */,
+				B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */,
+				B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */,
+				B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,8 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */,
-				B778242C2AAFC54F007DCDC3 /* CardEditor.swift in Sources */,
+				B778242C2AAFC54F007DCDC3 /* CardEditorView.swift in Sources */,
+				B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */,
+				B7704DBD2AB16D7500B9A4B4 /* BoardView.swift in Sources */,
 				B77824192AAF82F1007DCDC3 /* Card.swift in Sources */,
+				B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */,
 				B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */,
 				B7A6DCA82AB031AA00A7C03B /* CardView.swift in Sources */,
 			);

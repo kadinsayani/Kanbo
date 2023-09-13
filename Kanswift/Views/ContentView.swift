@@ -10,30 +10,32 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Card.timestamp, animation: .smooth) private var cards: [Card]
+//    @Query(sort: \Card.timestamp, animation: .smooth) private var cards: [Card]
+    @Query(sort: \Board.timestamp, animation: .smooth) private var boards: [Board]
     
-    @State private var isAddingCard = false
-    @State private var selectedCard: Card?
+//    @State private var isAddingCard = false
+//    @State private var selectedCard: Card?
+    @State private var isAddingBoard = false
+    @State private var selectedBoard: Board?
 
     var body: some View {
         NavigationSplitView {
-            List(selection: $selectedCard) {
-                ForEach(cards) { card in
+            List(selection: $selectedBoard) {
+                ForEach(boards) { board in
                     NavigationLink {
-                        Text(card.cardDescription)
+                        Text(board.title)
                     } label: {
-                        Text(card.cardDescription)
-                        Text(card.cardState).foregroundStyle(Color("Cyan"))
+                        Text(board.title)
                     }
                 }
             }
             .navigationSplitViewColumnWidth(min: 200, ideal: 220)
             .toolbar {
                 ToolbarItemGroup {
-                    Button(action: addCard) {
+                    Button(action: addBoard) {
                         Label("Add", systemImage: "plus")
                     }
-                    Button(action: deleteCard) {
+                    Button(action: deleteBoard) {
                         Label("Delete", systemImage: "trash")
                     }
                 }
@@ -41,23 +43,30 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
-        .sheet(isPresented: $isAddingCard) {
-            CardEditor(isPresented: $isAddingCard)
+        .sheet(isPresented: $isAddingBoard) {
+            BoardEditorView(isPresented: $isAddingBoard)
         }
     }
 
-    private func addCard() {
-        isAddingCard = true
+    private func addBoard() {
+        isAddingBoard = true
     }
     
-    // TODO: fix deleteCard functionality
-    private func deleteCard() {
-        if let selectedCard = selectedCard {
-            withAnimation {
-                modelContext.delete(selectedCard)
-            }
-        }
+    private func deleteBoard() {
+        // TODO: implement functionality
     }
+//    private func addCard() {
+//        isAddingCard = true
+//    }
+    
+    // TODO: fix deleteCard functionality
+//    private func deleteCard() {
+//        if let selectedCard = selectedCard {
+//            withAnimation {
+//                modelContext.delete(selectedCard)
+//            }
+//        }
+//    }
 }
 
 #Preview {

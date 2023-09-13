@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct CardEditor: View {
+struct CardEditorView: View {
     @Environment(\.modelContext) private var modelContext
     
     @Binding var isPresented: Bool
@@ -38,5 +38,5 @@ struct CardEditor: View {
 }
 
 #Preview() {
-    CardEditor(isPresented: .constant(true))
+    CardEditorView(isPresented: .constant(true))
 }
