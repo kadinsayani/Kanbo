@@ -31,10 +31,10 @@ struct ContentView: View {
                 ToolbarItemGroup {
                     Button(action: addBoard) {
                         Label("Add Board", systemImage: "plus")
-                    }
-                    Button(action: deleteBoard) {
+                    }.keyboardShortcut("b")
+                    Button(role: .destructive, action: deleteBoard) {
                         Label("Delete Board", systemImage: "trash")
-                    }
+                    }.keyboardShortcut(.delete)
                 }
             }
         } detail: {
@@ -42,7 +42,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isAddingBoard) {
             BoardEditorView(isPresented: $isAddingBoard)
-        }
+        }.keyboardShortcut(/*@START_MENU_TOKEN@*/.defaultAction/*@END_MENU_TOKEN@*/)
     }
 
     private func addBoard() {
@@ -51,6 +51,7 @@ struct ContentView: View {
     
     private func deleteBoard() {
         // TODO: implement functionality
+        print("delete")
     }
 //    private func addCard() {
 //        isAddingCard = true
