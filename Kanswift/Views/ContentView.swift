@@ -23,7 +23,7 @@ struct ContentView: View {
                         Text(card.cardDescription)
                     } label: {
                         Text(card.cardDescription)
-                        Text(card.cardState).foregroundStyle(.blue)
+                        Text(card.cardState).foregroundStyle(Color("Cyan"))
                     }
                 }
             }
