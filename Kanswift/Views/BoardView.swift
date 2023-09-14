@@ -15,49 +15,62 @@ struct BoardView: View {
     var board: Board
     
     var body: some View {
+        // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
+        // TODO: adjust spacing
         let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.timestamp < second.timestamp})
         NavigationStack {
             List(selection: $selectedCard) {
                 HStack {
                     // Backlog
                     VStack {
+                        Text("Backlog").font(.title)
+                        Spacer()
                         ForEach(cards.filter {$0.cardState == "Backlog"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
                         }
+                        Spacer()
                     }
                     Spacer()
                     // Doing
                     VStack {
+                        Text("Doing").font(.title)
+                        Spacer()
                         ForEach(cards.filter {$0.cardState == "Doing"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
                         }
+                        Spacer()
                     }
                     Spacer()
                     // Done
                     VStack {
+                        Text("Done").font(.title)
+                        Spacer()
                         ForEach(cards.filter {$0.cardState == "Done"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
                         }
+                        Spacer()
                     }
                     Spacer()
                     // Review
                     VStack {
+                        Text("Review").font(.title)
+                        Spacer()
                         ForEach(cards.filter {$0.cardState == "Review"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
                         }
+                        Spacer()
                     }
                     Spacer()
                 }
             }
-            
         }.toolbar {
             ToolbarItemGroup {
                 Button(action: addCard) {
@@ -77,7 +90,7 @@ struct BoardView: View {
     }
     
     private func deleteCard() {
-        print("delete")
+        // TODO: implement functionality
     }
 }
 

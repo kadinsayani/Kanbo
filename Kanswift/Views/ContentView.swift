@@ -23,6 +23,9 @@ struct ContentView: View {
                         BoardView(board: board)
                     } label: {
                         Text(board.title)
+                        Spacer()
+                        // TODO: item counts
+                        Text("test")
                     }
                 }
             }
@@ -51,7 +54,6 @@ struct ContentView: View {
     
     private func deleteBoard() {
         // TODO: implement functionality
-        print("delete")
     }
 }
 

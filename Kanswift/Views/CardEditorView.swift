@@ -18,16 +18,17 @@ struct CardEditorView: View {
     @State private var selectedCardState = "Backlog"
     
     var body: some View {
-            VStack {
-                TextField("Card Description", text: $cardDescription).padding(10)
-                
-                Picker("State: ", selection: $selectedCardState) {
-                    ForEach(cardStates, id: \.self) { state in
-                        Text(state)
-                    }
-                }.padding(10)
-                
-                Button("Save") {
+        VStack {
+            TextField("Card Description", text: $cardDescription).padding(10)
+            
+            Picker("State: ", selection: $selectedCardState) {
+                ForEach(cardStates, id: \.self) { state in
+                    Text(state)
+                }
+            }.padding(10)
+            
+            Button("Save") {
+                withAnimation {
                     let newCard = Card(cardDescription: cardDescription, cardState: selectedCardState, timestamp: Date())
                     board.cards.append(newCard)
                     do {
@@ -37,9 +38,10 @@ struct CardEditorView: View {
                     }
                     isPresented = false
                 }
-                .padding()
             }
-            .frame(width: 300, height: 150)
+            .padding()
+        }
+        .frame(width: 300, height: 150)
     }
 }
 
