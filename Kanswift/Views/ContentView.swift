@@ -53,18 +53,6 @@ struct ContentView: View {
         // TODO: implement functionality
         print("delete")
     }
-//    private func addCard() {
-//        isAddingCard = true
-//    }
-    
-    // TODO: fix deleteCard functionality
-//    private func deleteCard() {
-//        if let selectedCard = selectedCard {
-//            withAnimation {
-//                modelContext.delete(selectedCard)
-//            }
-//        }
-//    }
 }
 
 #Preview {

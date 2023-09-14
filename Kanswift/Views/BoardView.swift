@@ -9,19 +9,53 @@ import SwiftUI
 
 struct BoardView: View {
     @State private var isAddingCard = false
-    //    @State private var selectedCard: Card?
+    @State private var selectedCard: Card?
     
     var board: Board
     
     var body: some View {
         NavigationStack {
-            HStack {
-                List() {
-                    ForEach(board.cards) { card in
-                        CardView(card: card)
+            List(selection: $selectedCard) {
+                HStack {
+                    // Backlog
+                    VStack {
+                        ForEach(board.cards.filter {$0.cardState == "Backlog"}) { card in
+                            CardView(card: card).onDeleteCommand(perform: {
+                                deleteCard()
+                            })
+                        }
                     }
+                    Spacer()
+                    // Doing
+                    VStack {
+                        ForEach(board.cards.filter {$0.cardState == "Doing"}) { card in
+                            CardView(card: card).onDeleteCommand(perform: {
+                                deleteCard()
+                            })
+                        }
+                    }
+                    Spacer()
+                    // Done
+                    VStack {
+                        ForEach(board.cards.filter {$0.cardState == "Done"}) { card in
+                            CardView(card: card).onDeleteCommand(perform: {
+                                deleteCard()
+                            })
+                        }
+                    }
+                    Spacer()
+                    // Review
+                    VStack {
+                        ForEach(board.cards.filter {$0.cardState == "Review"}) { card in
+                            CardView(card: card).onDeleteCommand(perform: {
+                                deleteCard()
+                            })
+                        }
+                    }
+                    Spacer()
                 }
             }
+            
         }.toolbar {
             ToolbarItemGroup {
                 Button(action: addCard) {
