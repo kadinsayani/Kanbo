@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BoardView: View {
     @State private var isAddingCard = false
@@ -14,12 +15,13 @@ struct BoardView: View {
     var board: Board
     
     var body: some View {
+        let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.timestamp < second.timestamp})
         NavigationStack {
             List(selection: $selectedCard) {
                 HStack {
                     // Backlog
                     VStack {
-                        ForEach(board.cards.filter {$0.cardState == "Backlog"}) { card in
+                        ForEach(cards.filter {$0.cardState == "Backlog"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
@@ -28,7 +30,7 @@ struct BoardView: View {
                     Spacer()
                     // Doing
                     VStack {
-                        ForEach(board.cards.filter {$0.cardState == "Doing"}) { card in
+                        ForEach(cards.filter {$0.cardState == "Doing"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
@@ -37,7 +39,7 @@ struct BoardView: View {
                     Spacer()
                     // Done
                     VStack {
-                        ForEach(board.cards.filter {$0.cardState == "Done"}) { card in
+                        ForEach(cards.filter {$0.cardState == "Done"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
@@ -46,7 +48,7 @@ struct BoardView: View {
                     Spacer()
                     // Review
                     VStack {
-                        ForEach(board.cards.filter {$0.cardState == "Review"}) { card in
+                        ForEach(cards.filter {$0.cardState == "Review"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
