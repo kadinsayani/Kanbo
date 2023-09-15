@@ -24,8 +24,15 @@ struct ContentView: View {
                     } label: {
                         Text(board.title)
                         Spacer()
-                        // TODO: item counts
-                        Text("test")
+                        let backlogCount = board.cards.filter({$0.cardState == "Backlog"}).count
+                        let backlogCountText = Text("\(backlogCount)").foregroundStyle(Color("kanswift.orange"))
+                        let doingCount = board.cards.filter({$0.cardState == "Doing"}).count
+                        let doingCountText = Text("\(doingCount)").foregroundStyle(Color("kanswift.purple"))
+                        let doneCount = board.cards.filter({$0.cardState == "Done"}).count
+                        let doneCountText = Text("\(doneCount)").foregroundStyle(Color("kanswift.cyan"))
+                        let reviewCount = board.cards.filter({$0.cardState == "Review"}).count
+                        let reviewCountText = Text("\(reviewCount)").foregroundStyle(Color("kanswift.white"))
+                        Text("\(backlogCountText) | \(doingCountText) | \(doneCountText) | \(reviewCountText)")
                     }
                 }
             }
@@ -41,7 +48,8 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            Text("Select an item")
+            // TODO: default board most recent
+            Text("Select a Board")
         }
         .sheet(isPresented: $isAddingBoard) {
             BoardEditorView(isPresented: $isAddingBoard)
@@ -57,7 +65,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Card.self, inMemory: true)
-}
+//#Preview {
+//    ContentView()
+//}
