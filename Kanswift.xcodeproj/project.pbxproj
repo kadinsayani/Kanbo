@@ -17,6 +17,7 @@
 		B7A6DCA82AB031AA00A7C03B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A6DCA72AB031AA00A7C03B /* CardView.swift */; };
 		B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC22AB24D9B007838A5 /* Board.swift */; };
 		B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */; };
+		B7FAF53E2AB6EBFA00212A78 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FAF53D2AB6EBFA00212A78 /* StatusMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B7A6DCA72AB031AA00A7C03B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B7CAADC22AB24D9B007838A5 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorView.swift; sourceTree = "<group>"; };
+		B7FAF53D2AB6EBFA00212A78 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */,
 				B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */,
 				B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */,
+				B7FAF53D2AB6EBFA00212A78 /* StatusMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */,
+				B7FAF53E2AB6EBFA00212A78 /* StatusMenu.swift in Sources */,
 				B778242C2AAFC54F007DCDC3 /* CardEditorView.swift in Sources */,
 				B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */,
 				B7704DBD2AB16D7500B9A4B4 /* BoardView.swift in Sources */,
