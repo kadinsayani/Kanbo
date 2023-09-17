@@ -13,14 +13,31 @@ struct StatusMenu: View {
     @Query(sort: \Board.timestamp) private var boards: [Board]
     
     var body: some View {
-        Text("Kanswift")
-        // TODO: show boards, mini ui
-        ForEach(boards) { board in
-            Text("\(board.title)")
+        VStack {
+            Text("Kanswift").font(.headline).padding(10)
+            HStack {
+                Text("Boards").underline()
+                Spacer()
+            }.padding(.leading, 10)
+            ForEach(boards) { board in
+                HStack {
+                    Text("\(board.title)")
+                    Spacer()
+                    let backlogCount = board.cards.filter({$0.cardState == "Backlog"}).count
+                    let backlogCountText = Text("\(backlogCount)").foregroundStyle(Color("kanswift.orange"))
+                    let doingCount = board.cards.filter({$0.cardState == "Doing"}).count
+                    let doingCountText = Text("\(doingCount)").foregroundStyle(Color("kanswift.purple"))
+                    let doneCount = board.cards.filter({$0.cardState == "Done"}).count
+                    let doneCountText = Text("\(doneCount)").foregroundStyle(Color("kanswift.cyan"))
+                    let reviewCount = board.cards.filter({$0.cardState == "Review"}).count
+                    let reviewCountText = Text("\(reviewCount)").foregroundStyle(Color("kanswift.white"))
+                    Text("\(backlogCountText) | \(doingCountText) | \(doneCountText) | \(reviewCountText)")
+                }.padding(10)
+            }
         }
     }
 }
 
-#Preview {
-    StatusMenu()
-}
+//#Preview {
+//    StatusMenu()
+//}

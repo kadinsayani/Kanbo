@@ -33,7 +33,7 @@ struct KanswiftApp: App {
         .modelContainer(sharedModelContainer)
         
         MenuBarExtra("Kanswift Menu Bar Extra", systemImage: "rectangle.split.3x1", isInserted: $showMenuBarExtra) {
-            StatusMenu()
-        }.menuBarExtraStyle(.window).modelContainer(sharedModelContainer)
+            StatusMenu().modelContainer(sharedModelContainer)
+        }.menuBarExtraStyle(.window)
     }
 }
