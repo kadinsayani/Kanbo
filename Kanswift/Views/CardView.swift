@@ -25,7 +25,7 @@ struct CardView: View {
         }
         ZStack {
             RoundedRectangle(cornerRadius: 5).stroke(Color(color), lineWidth: 1).frame(width: 150, height: 100)
-            Text(card.cardDescription)
+            Text(card.cardTitle)
         }
     }
 }

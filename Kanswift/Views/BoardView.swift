@@ -17,8 +17,11 @@ struct BoardView: View {
     var body: some View {
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
         // TODO: adjust spacing
-        let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.timestamp < second.timestamp})
+        let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.createdAt < second.createdAt})
         NavigationStack {
+            Spacer()
+            Text(board.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            Spacer()
             List(selection: $selectedCard) {
                 HStack {
                     // Backlog
@@ -45,11 +48,11 @@ struct BoardView: View {
                         Spacer()
                     }
                     Spacer()
-                    // Done
+                    // Review
                     VStack {
-                        Text("Done").font(.title)
+                        Text("Review").font(.title)
                         Spacer()
-                        ForEach(cards.filter {$0.cardState == "Done"}) { card in
+                        ForEach(cards.filter {$0.cardState == "Review"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })
@@ -57,11 +60,11 @@ struct BoardView: View {
                         Spacer()
                     }
                     Spacer()
-                    // Review
+                    // Done
                     VStack {
-                        Text("Review").font(.title)
+                        Text("Done").font(.title)
                         Spacer()
-                        ForEach(cards.filter {$0.cardState == "Review"}) { card in
+                        ForEach(cards.filter {$0.cardState == "Done"}) { card in
                             CardView(card: card).onDeleteCommand(perform: {
                                 deleteCard()
                             })

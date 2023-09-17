@@ -13,23 +13,36 @@ struct CardEditorView: View {
     
     var board: Board
     @Binding var isPresented: Bool
+    @State private var cardTitle = ""
     @State private var cardDescription = ""
+    @State private var dueDate = Date()
     @State private var cardStates = ["Backlog", "Doing", "Review", "Done"]
     @State private var selectedCardState = "Backlog"
     
     var body: some View {
         VStack {
-            TextField("Card Description", text: $cardDescription).padding(10)
-            
+            Spacer()
+            Text("New Card").font(.title)
+            Spacer()
+            TextField("Card title", text: $cardTitle, axis: .vertical).padding(10).frame(height:50)
+                .textFieldStyle(PlainTextFieldStyle())
+                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
+            Spacer()
+            TextField("Card description", text: $cardDescription, axis: .vertical).padding(10).frame(height: 200)
+                .textFieldStyle(PlainTextFieldStyle())
+                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
+            Spacer()
+            DatePicker("Due Date: ", selection: $dueDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.graphical).padding(10)
+            Spacer()
             Picker("State: ", selection: $selectedCardState) {
                 ForEach(cardStates, id: \.self) { state in
                     Text(state)
                 }
-            }.padding(10)
-            
+            }.pickerStyle(.palette).padding(10)
+            Spacer()
             Button("Save") {
                 withAnimation {
-                    let newCard = Card(cardDescription: cardDescription, cardState: selectedCardState, timestamp: Date())
+                    let newCard = Card(cardTitle: cardTitle, cardDescription: cardDescription, cardState: selectedCardState, createdAt: Date(), dueDate: dueDate)
                     board.cards.append(newCard)
                     do {
                         try modelContext.save()
@@ -39,9 +52,9 @@ struct CardEditorView: View {
                     isPresented = false
                 }
             }
-            .padding()
+            Spacer()
         }
-        .frame(width: 300, height: 150)
+        .frame(width: 400, height: 700)
     }
 }
 

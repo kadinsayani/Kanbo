@@ -11,14 +11,18 @@ import SwiftData
 @Model
 final class Card {
     @Attribute(.unique) var id: UUID
+    var cardTitle: String
     var cardDescription: String
     var cardState: String
-    var timestamp: Date
+    var createdAt: Date
+    var dueDate: Date
     
-    init(cardDescription: String = "", cardState: String = "Backlog", timestamp: Date = Date()) {
+    init(cardTitle: String = "", cardDescription: String = "", cardState: String = "Backlog", createdAt: Date = Date(), dueDate: Date) {
         self.id = UUID()
+        self.cardTitle = cardTitle
         self.cardDescription = cardDescription
         self.cardState = cardState
-        self.timestamp = timestamp
+        self.createdAt = createdAt
+        self.dueDate = dueDate
     }
 }

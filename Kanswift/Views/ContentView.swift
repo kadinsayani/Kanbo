@@ -36,7 +36,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationSplitViewColumnWidth(min: 200, ideal: 220)
+            .navigationSplitViewColumnWidth(min: 260, ideal: 260)
             .toolbar {
                 ToolbarItemGroup {
                     Button(action: addBoard) {
