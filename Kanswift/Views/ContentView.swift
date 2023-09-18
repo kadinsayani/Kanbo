@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Board.timestamp, animation: .smooth) private var boards: [Board]
+    @Query(sort: \Board.timestamp, order: .reverse, animation: .smooth) private var boards: [Board]
     
     @State private var isAddingBoard = false
     @State private var selectedBoard: Board?
@@ -22,7 +22,7 @@ struct ContentView: View {
                     NavigationLink {
                         BoardView(board: board)
                     } label: {
-                        Text(board.title)
+                        Text("\(board.title)")
                         Spacer()
                         let backlogCount = board.cards.filter({$0.cardState == "Backlog"}).count
                         let backlogCountText = Text("\(backlogCount)").foregroundStyle(Color("kanswift.orange"))
@@ -48,8 +48,15 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            // TODO: default board most recent
-            Text("Select a Board")
+            if let selectedBoard = selectedBoard {
+                BoardView(board: selectedBoard)
+            } else {
+                Text("Select a Board")
+            }
+        }.onAppear {
+            if let mostRecentBoard = boards.first {
+                selectedBoard = mostRecentBoard
+            }
         }
         .sheet(isPresented: $isAddingBoard) {
             BoardEditorView(isPresented: $isAddingBoard)
