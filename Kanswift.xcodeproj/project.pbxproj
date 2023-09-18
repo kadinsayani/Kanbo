@@ -14,6 +14,9 @@
 		B778241B2AAF82F3007DCDC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241A2AAF82F3007DCDC3 /* Assets.xcassets */; };
 		B778241E2AAF82F3007DCDC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */; };
 		B778242C2AAFC54F007DCDC3 /* CardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */; };
+		B78CD95B2AB7ED9F00C83555 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B78CD95A2AB7ED9F00C83555 /* Credits.rtf */; };
+		B78CD95D2AB7F50100C83555 /* BoardStatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78CD95C2AB7F50100C83555 /* BoardStatesView.swift */; };
+		B78CD95F2AB7F59400C83555 /* BoardColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78CD95E2AB7F59400C83555 /* BoardColumnView.swift */; };
 		B7A6DCA82AB031AA00A7C03B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A6DCA72AB031AA00A7C03B /* CardView.swift */; };
 		B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC22AB24D9B007838A5 /* Board.swift */; };
 		B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */; };
@@ -30,6 +33,9 @@
 		B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kanswift.entitlements; sourceTree = "<group>"; };
 		B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditorView.swift; sourceTree = "<group>"; };
+		B78CD95A2AB7ED9F00C83555 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		B78CD95C2AB7F50100C83555 /* BoardStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStatesView.swift; sourceTree = "<group>"; };
+		B78CD95E2AB7F59400C83555 /* BoardColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardColumnView.swift; sourceTree = "<group>"; };
 		B7A6DCA72AB031AA00A7C03B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B7CAADC22AB24D9B007838A5 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorView.swift; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 				B7ED2C3C2AB03CF300E7C5D9 /* Views */,
 				B7ED2C3B2AB03CDB00E7C5D9 /* Model */,
 				B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */,
+				B78CD95A2AB7ED9F00C83555 /* Credits.rtf */,
 				B778241A2AAF82F3007DCDC3 /* Assets.xcassets */,
 				B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */,
 				B778241C2AAF82F3007DCDC3 /* Preview Content */,
@@ -102,6 +109,8 @@
 				B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */,
 				B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */,
 				B7FAF53D2AB6EBFA00212A78 /* StatusMenu.swift */,
+				B78CD95C2AB7F50100C83555 /* BoardStatesView.swift */,
+				B78CD95E2AB7F59400C83555 /* BoardColumnView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B778241E2AAF82F3007DCDC3 /* Preview Assets.xcassets in Resources */,
+				B78CD95B2AB7ED9F00C83555 /* Credits.rtf in Resources */,
 				B778241B2AAF82F3007DCDC3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,8 +189,10 @@
 				B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */,
 				B7FAF53E2AB6EBFA00212A78 /* StatusMenu.swift in Sources */,
 				B778242C2AAFC54F007DCDC3 /* CardEditorView.swift in Sources */,
+				B78CD95F2AB7F59400C83555 /* BoardColumnView.swift in Sources */,
 				B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */,
 				B7704DBD2AB16D7500B9A4B4 /* BoardView.swift in Sources */,
+				B78CD95D2AB7F50100C83555 /* BoardStatesView.swift in Sources */,
 				B77824192AAF82F1007DCDC3 /* Card.swift in Sources */,
 				B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */,
 				B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */,

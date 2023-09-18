@@ -13,11 +13,11 @@ struct BoardView: View {
     @State private var selectedCard: Card?
     
     var board: Board
+    @State var cards: [Card]
     
     var body: some View {
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
         // TODO: adjust vertical spacing
-        // cards sorted by createdAt, newest on top
         let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.createdAt < second.createdAt})
         NavigationStack {
             Spacer()
@@ -25,54 +25,10 @@ struct BoardView: View {
             Spacer()
             List(selection: $selectedCard) {
                 HStack {
-                    // Backlog
-                    VStack {
-                        Text("Backlog").font(.title)
-                        Spacer()
-                        ForEach(cards.filter {$0.cardState == "Backlog"}) { card in
-                            CardView(card: card).onDeleteCommand(perform: {
-                                deleteCard()
-                            })
-                        }
-                        Spacer()
-                    }
-                    Spacer()
-                    // Doing
-                    VStack {
-                        Text("Doing").font(.title)
-                        Spacer()
-                        ForEach(cards.filter {$0.cardState == "Doing"}) { card in
-                            CardView(card: card).onDeleteCommand(perform: {
-                                deleteCard()
-                            })
-                        }
-                        Spacer()
-                    }
-                    Spacer()
-                    // Review
-                    VStack {
-                        Text("Review").font(.title)
-                        Spacer()
-                        ForEach(cards.filter {$0.cardState == "Review"}) { card in
-                            CardView(card: card).onDeleteCommand(perform: {
-                                deleteCard()
-                            })
-                        }
-                        Spacer()
-                    }
-                    Spacer()
-                    // Done
-                    VStack {
-                        Text("Done").font(.title)
-                        Spacer()
-                        ForEach(cards.filter {$0.cardState == "Done"}) { card in
-                            CardView(card: card).onDeleteCommand(perform: {
-                                deleteCard()
-                            })
-                        }
-                        Spacer()
-                    }
-                    Spacer()
+                    BoardColumnView(cards: cards, state: "Backlog")
+                    BoardColumnView(cards: cards, state: "Doing")
+                    BoardColumnView(cards: cards, state: "Review")
+                    BoardColumnView(cards: cards, state: "Done")
                 }
             }
         }.toolbar {

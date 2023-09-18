@@ -16,10 +16,10 @@ struct CardView: View {
             "kanswift.orange"
         case "Doing":
             "kanswift.purple"
-        case "Done":
-            "kanswift.cyan"
         case "Review":
             "kanswift.white"
+        case "Done":
+            "kanswift.cyan"
         default:
             "kanswift.orange"
         }

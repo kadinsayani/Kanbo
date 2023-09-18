@@ -21,20 +21,10 @@ struct ContentView: View {
             List(selection: $selectedBoard) {
                 ForEach(boards) { board in
                     NavigationLink {
-                        BoardView(board: board)
+                        BoardView(board: board, cards: board.cards)
                     } label: {
                         // state counts
-                        Text("\(board.title)")
-                        Spacer()
-                        let backlogCount = board.cards.filter({$0.cardState == "Backlog"}).count
-                        let backlogCountText = Text("\(backlogCount)").foregroundStyle(Color("kanswift.orange"))
-                        let doingCount = board.cards.filter({$0.cardState == "Doing"}).count
-                        let doingCountText = Text("\(doingCount)").foregroundStyle(Color("kanswift.purple"))
-                        let doneCount = board.cards.filter({$0.cardState == "Done"}).count
-                        let doneCountText = Text("\(doneCount)").foregroundStyle(Color("kanswift.cyan"))
-                        let reviewCount = board.cards.filter({$0.cardState == "Review"}).count
-                        let reviewCountText = Text("\(reviewCount)").foregroundStyle(Color("kanswift.white"))
-                        Text("\(backlogCountText) | \(doingCountText) | \(doneCountText) | \(reviewCountText)")
+                       BoardStatesView(board: board)
                     }
                 }
             }
@@ -51,7 +41,7 @@ struct ContentView: View {
             }
         } detail: {
             if let selectedBoard = selectedBoard {
-                BoardView(board: selectedBoard)
+                BoardView(board: selectedBoard, cards: selectedBoard.cards)
             } else {
                 Text("Select a Board")
             }
