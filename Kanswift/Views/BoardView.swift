@@ -5,23 +5,23 @@
 //  Created by Kadin Sayani on 2023-09-12.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct BoardView: View {
-    @State private var isAddingCard = false
-    @State private var selectedCard: Card?
-    
     var board: Board
     @State var cards: [Card]
+    
+    @State private var isAddingCard = false
+    @State private var selectedCard: Card?
     
     var body: some View {
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
         // TODO: adjust vertical spacing
-        let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.createdAt < second.createdAt})
+        let cards = board.cards.sorted(by: { (first: Card, second: Card) -> Bool in first.createdAt < second.createdAt })
         NavigationStack {
             Spacer()
-            Text(board.title).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            Text(board.title).font(/*@START_MENU_TOKEN@*/ .title/*@END_MENU_TOKEN@*/)
             Spacer()
             List(selection: $selectedCard) {
                 HStack {
@@ -42,7 +42,7 @@ struct BoardView: View {
             }
         }.sheet(isPresented: $isAddingCard) {
             CardEditorView(board: board, isPresented: $isAddingCard)
-        }.keyboardShortcut(/*@START_MENU_TOKEN@*/.defaultAction/*@END_MENU_TOKEN@*/)
+        }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
     }
     
     private func addCard() {
@@ -56,6 +56,6 @@ struct BoardView: View {
     // TODO: edit card functionality
 }
 
-//#Preview {
+// #Preview {
 //    BoardView()
-//}
+// }

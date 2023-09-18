@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CardView: View {
     var card: Card
-    
+
     var body: some View {
-        let color: String = switch(card.cardState) {
+        let color: String = switch card.cardState {
         case "Backlog":
             "kanswift.orange"
         case "Doing":
@@ -30,6 +30,6 @@ struct CardView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    CardView()
-//}
+// }

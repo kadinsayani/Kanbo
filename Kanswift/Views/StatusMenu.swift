@@ -5,13 +5,13 @@
 //  Created by Kadin Sayani on 2023-09-17.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct StatusMenu: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Board.timestamp) private var boards: [Board]
-    
+
     var body: some View {
         VStack {
             Text("Kanswift").font(.headline).padding(10)
@@ -28,6 +28,6 @@ struct StatusMenu: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    StatusMenu()
-//}
+// }

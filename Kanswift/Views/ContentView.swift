@@ -5,14 +5,14 @@
 //  Created by Kadin Sayani on 2023-09-11.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     // sorted by newest on top
     @Query(sort: \Board.timestamp, order: .reverse, animation: .smooth) private var boards: [Board]
-    
+
     @State private var isAddingBoard = false
     @State private var selectedBoard: Board?
 
@@ -24,7 +24,7 @@ struct ContentView: View {
                         BoardView(board: board, cards: board.cards)
                     } label: {
                         // state counts
-                       BoardStatesView(board: board)
+                        BoardStatesView(board: board)
                     }
                 }
             }
@@ -53,20 +53,20 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isAddingBoard) {
             BoardEditorView(isPresented: $isAddingBoard)
-        }.keyboardShortcut(/*@START_MENU_TOKEN@*/.defaultAction/*@END_MENU_TOKEN@*/)
+        }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
     }
 
     private func addBoard() {
         isAddingBoard = true
     }
-    
+
     private func deleteBoard() {
         // TODO: implement functionality
     }
-    
+
     // TODO: right click to rename board
 }
 
-//#Preview {
+// #Preview {
 //    ContentView()
-//}
+// }

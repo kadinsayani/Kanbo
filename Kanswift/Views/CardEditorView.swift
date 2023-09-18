@@ -5,12 +5,12 @@
 //  Created by Kadin Sayani on 2023-09-11.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct CardEditorView: View {
     @Environment(\.modelContext) private var modelContext
-    
+
     var board: Board
     @Binding var isPresented: Bool
     @State private var cardTitle = ""
@@ -18,13 +18,13 @@ struct CardEditorView: View {
     @State private var dueDate = Date()
     @State private var cardStates = ["Backlog", "Doing", "Review", "Done"]
     @State private var selectedCardState = "Backlog"
-    
+
     var body: some View {
         VStack {
             Spacer()
             Text("Add Card").font(.title)
             Spacer()
-            TextField("Card title", text: $cardTitle, axis: .vertical).padding(10).frame(height:50)
+            TextField("Card title", text: $cardTitle, axis: .vertical).padding(10).frame(height: 50)
                 .textFieldStyle(PlainTextFieldStyle())
                 .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
             Spacer()
@@ -58,6 +58,6 @@ struct CardEditorView: View {
     }
 }
 
-//#Preview() {
+// #Preview() {
 //    CardEditorView(isPresented: .constant(true))
-//}
+// }
