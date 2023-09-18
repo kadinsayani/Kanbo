@@ -22,7 +22,7 @@ struct CardEditorView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("New Card").font(.title)
+            Text("Add Card").font(.title)
             Spacer()
             TextField("Card title", text: $cardTitle, axis: .vertical).padding(10).frame(height:50)
                 .textFieldStyle(PlainTextFieldStyle())

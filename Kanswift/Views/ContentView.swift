@@ -62,7 +62,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isAddingBoard) {
-            BoardEditorView(isPresented: $isAddingBoard) // add board
+            BoardEditorView(isPresented: $isAddingBoard)
         }.keyboardShortcut(/*@START_MENU_TOKEN@*/.defaultAction/*@END_MENU_TOKEN@*/)
     }
 

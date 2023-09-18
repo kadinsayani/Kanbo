@@ -31,6 +31,19 @@ struct KanswiftApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
+        .commands {
+            CommandMenu("Actions") {
+                Button("Add Board") {
+                   // TODO: implement functionality and keyboard shortcut
+                }
+                Button("Add Card") {
+                    // TODO: implement functionality and keyboard shortcut
+                }
+            }
+        }
+        .commands {
+            TextEditingCommands()
+        }
         
         MenuBarExtra("Kanswift Menu Bar Extra", systemImage: "rectangle.split.3x1", isInserted: $showMenuBarExtra) {
             StatusMenu().modelContainer(sharedModelContainer)

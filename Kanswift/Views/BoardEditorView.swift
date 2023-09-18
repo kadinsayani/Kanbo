@@ -17,7 +17,7 @@ struct BoardEditorView: View {
     var body: some View {
             VStack {
                 Spacer()
-                Text("New Board").font(.title)
+                Text("Add Board").font(.title)
                 Spacer()
                 TextField("Board Title", text: $title).padding(10).frame(height:50)
                     .textFieldStyle(PlainTextFieldStyle())
