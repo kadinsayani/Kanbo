@@ -16,8 +16,13 @@ struct BoardEditorView: View {
     
     var body: some View {
             VStack {
-                TextField("Board Title", text: $title).padding(10)
-                
+                Spacer()
+                Text("New Board").font(.title)
+                Spacer()
+                TextField("Board Title", text: $title).padding(10).frame(height:50)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
+                Spacer()
                 Button("Save") {
                     let newBoard = Board(title: title, timestamp: Date(), cards: [])
                     modelContext.insert(newBoard)
@@ -25,7 +30,7 @@ struct BoardEditorView: View {
                 }
                 .padding()
             }
-            .frame(width: 300, height: 150)
+            .frame(width: 300, height: 200)
     }
 }
 

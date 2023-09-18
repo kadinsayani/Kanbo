@@ -16,7 +16,8 @@ struct BoardView: View {
     
     var body: some View {
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
-        // TODO: adjust spacing
+        // TODO: adjust vertical spacing
+        // cards sorted by createdAt, newest on top
         let cards = board.cards.sorted(by: {(first: Card, second: Card) -> Bool in return first.createdAt < second.createdAt})
         NavigationStack {
             Spacer()
@@ -95,6 +96,8 @@ struct BoardView: View {
     private func deleteCard() {
         // TODO: implement functionality
     }
+    
+    // TODO: edit card functionality
 }
 
 //#Preview {
