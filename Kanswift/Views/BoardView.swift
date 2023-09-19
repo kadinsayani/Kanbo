@@ -17,13 +17,12 @@ struct BoardView: View {
     
     var body: some View {
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
-        // TODO: adjust vertical spacing
         let cards = board.cards.sorted(by: { (first: Card, second: Card) -> Bool in first.createdAt < second.createdAt })
         NavigationStack {
             Spacer()
             Text(board.title).font(/*@START_MENU_TOKEN@*/ .title/*@END_MENU_TOKEN@*/)
             Spacer()
-            List(selection: $selectedCard) {
+            ScrollView {
                 HStack {
                     BoardColumnView(cards: cards, state: "Backlog")
                     BoardColumnView(cards: cards, state: "Doing")

@@ -12,15 +12,15 @@ struct BoardColumnView: View {
     var state: String
 
     var body: some View {
-        VStack {
-            Text(state).font(.title)
-            Spacer()
-            ForEach(cards.filter { $0.cardState == state }) { card in
-                CardView(card: card)
+        ScrollView {
+            LazyVStack {
+                Text(state).font(.title)
+                ForEach(cards.filter { $0.cardState == state }) { card in
+                    CardView(card: card)
+                }
             }
             Spacer()
         }
-        Spacer()
     }
 }
 
