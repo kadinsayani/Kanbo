@@ -12,7 +12,7 @@ struct BoardView: View {
     var board: Board
     @State var cards: [Card]
     
-    @State private var isAddingCard = false
+    @State private var isPresented = false
     @State private var selectedCard: Card?
     
     var body: some View {
@@ -24,10 +24,10 @@ struct BoardView: View {
             Spacer()
             ScrollView {
                 HStack {
-                    BoardColumnView(cards: cards, state: "Backlog")
-                    BoardColumnView(cards: cards, state: "Doing")
-                    BoardColumnView(cards: cards, state: "Review")
-                    BoardColumnView(cards: cards, state: "Done")
+                    BoardColumnView(board: board, cards: cards, state: "Backlog")
+                    BoardColumnView(board: board, cards: cards, state: "Doing")
+                    BoardColumnView(board: board, cards: cards, state: "Review")
+                    BoardColumnView(board: board, cards: cards, state: "Done")
                 }
             }
         }.toolbar {
@@ -39,13 +39,14 @@ struct BoardView: View {
                     Label("Delete Card", systemImage: "trash")
                 }.keyboardShortcut(.delete)
             }
-        }.sheet(isPresented: $isAddingCard) {
-            CardEditorView(board: board, isPresented: $isAddingCard)
+        }.sheet(isPresented: $isPresented) {
+            let newCard = Card(cardTitle: "", cardDescription: "", cardState: "Backlog", createdAt: Date(), dueDate: Date())
+            CardEditorView(board: board, card: newCard, isPresented: $isPresented)
         }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
     }
     
     private func addCard() {
-        isAddingCard = true
+        isPresented = true
     }
     
     private func deleteCard() {

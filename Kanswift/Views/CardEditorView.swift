@@ -10,31 +10,29 @@ import SwiftUI
 
 struct CardEditorView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
 
     var board: Board
+    @Bindable var card: Card
     @Binding var isPresented: Bool
-    @State private var cardTitle = ""
-    @State private var cardDescription = ""
-    @State private var dueDate = Date()
     @State private var cardStates = ["Backlog", "Doing", "Review", "Done"]
-    @State private var selectedCardState = "Backlog"
 
     var body: some View {
         VStack {
             Spacer()
             Text("Add Card").font(.title)
             Spacer()
-            TextField("Card title", text: $cardTitle, axis: .vertical).padding(10).frame(height: 50)
+            TextField("Card title", text: $card.cardTitle, axis: .vertical).padding(10).frame(height: 50)
                 .textFieldStyle(PlainTextFieldStyle())
                 .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
             Spacer()
-            TextField("Card description", text: $cardDescription, axis: .vertical).padding(10).frame(height: 200)
+            TextField("Card description", text: $card.cardDescription, axis: .vertical).padding(10).frame(height: 200)
                 .textFieldStyle(PlainTextFieldStyle())
                 .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
             Spacer()
-            DatePicker("Due Date: ", selection: $dueDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.graphical).padding(10)
+            DatePicker("Due Date: ", selection: $card.dueDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.graphical).padding(10)
             Spacer()
-            Picker("State: ", selection: $selectedCardState) {
+            Picker("State: ", selection: $card.cardState) {
                 ForEach(cardStates, id: \.self) { state in
                     Text(state)
                 }
@@ -42,14 +40,14 @@ struct CardEditorView: View {
             Spacer()
             Button("Save") {
                 withAnimation {
-                    let newCard = Card(cardTitle: cardTitle, cardDescription: cardDescription, cardState: selectedCardState, createdAt: Date(), dueDate: dueDate)
-                    board.cards.append(newCard)
+                    board.cards.append(card)
+                    isPresented = false
+                    dismiss()
                     do {
                         try modelContext.save()
                     } catch {
                         print(error.localizedDescription)
                     }
-                    isPresented = false
                 }
             }
             Spacer()
