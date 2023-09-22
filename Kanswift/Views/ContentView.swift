@@ -61,7 +61,20 @@ struct ContentView: View {
     }
 
     private func deleteBoard() {
-        // TODO: implement functionality
+        // TODO: fix bug after all deleted (should show detail)
+        withAnimation {
+            if let selectedBoard = selectedBoard {
+                modelContext.delete(selectedBoard)
+            }
+            do {
+                try modelContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+            if let mostRecentBoard = boards.first {
+                selectedBoard = mostRecentBoard
+            }
+        }
     }
 
     // TODO: right click to rename board

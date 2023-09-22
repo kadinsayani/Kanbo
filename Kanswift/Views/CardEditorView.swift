@@ -20,11 +20,9 @@ struct CardEditorView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Add Card").font(.title)
-            Spacer()
             TextField("Card title", text: $card.cardTitle, axis: .vertical).padding(10).frame(height: 50)
                 .textFieldStyle(PlainTextFieldStyle())
-                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
+                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title)
             Spacer()
             TextField("Card description", text: $card.cardDescription, axis: .vertical).padding(10).frame(height: 200)
                 .textFieldStyle(PlainTextFieldStyle())

@@ -9,6 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct BoardView: View {
+    @Environment(\.modelContext) private var modelContext
+    
     var board: Board
     @State var cards: [Card]
     
@@ -50,10 +52,18 @@ struct BoardView: View {
     }
     
     private func deleteCard() {
-        // TODO: implement functionality
+        // TODO: fix implementation (highlight selected card)
+        withAnimation {
+            if let selectedCard = selectedCard {
+                board.cards.removeAll { card in card.id == selectedCard.id }
+            }
+            do {
+                try modelContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
-    
-    // TODO: edit card functionality
 }
 
 // #Preview {

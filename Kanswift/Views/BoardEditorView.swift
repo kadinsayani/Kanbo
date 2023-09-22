@@ -17,11 +17,9 @@ struct BoardEditorView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Add Board").font(.title)
-            Spacer()
             TextField("Board Title", text: $title).padding(10).frame(height: 50)
                 .textFieldStyle(PlainTextFieldStyle())
-                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
+                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title)
             Spacer()
             Button("Save") {
                 let newBoard = Board(title: title, timestamp: Date(), cards: [])
