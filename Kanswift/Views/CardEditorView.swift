@@ -28,7 +28,7 @@ struct CardEditorView: View {
                 .textFieldStyle(PlainTextFieldStyle())
                 .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
             Spacer()
-            DatePicker("Due Date: ", selection: $card.dueDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.graphical).padding(10)
+            DatePicker("Due Date: ", selection: $card.dueDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.automatic).padding(10)
             Spacer()
             Picker("State: ", selection: $card.cardState) {
                 ForEach(cardStates, id: \.self) { state in
@@ -50,7 +50,7 @@ struct CardEditorView: View {
             }
             Spacer()
         }
-        .frame(width: 400, height: 700)
+        .frame(width: 400, height: 500)
     }
 }
 
