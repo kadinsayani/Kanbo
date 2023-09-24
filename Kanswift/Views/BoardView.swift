@@ -10,13 +10,13 @@ import SwiftUI
 
 struct BoardView: View {
     @Environment(\.modelContext) private var modelContext
-    
+
     var board: Board
     @State var cards: [Card]
-    
+
     @State private var isPresented = false
     @State private var selectedCard: Card?
-    
+
     var body: some View {
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
         let cards = board.cards.sorted(by: { (first: Card, second: Card) -> Bool in first.createdAt < second.createdAt })
@@ -46,11 +46,11 @@ struct BoardView: View {
             CardEditorView(board: board, card: newCard, isPresented: $isPresented)
         }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
     }
-    
+
     private func addCard() {
         isPresented = true
     }
-    
+
     private func deleteCard() {
         // TODO: fix implementation (highlight selected card)
         withAnimation {

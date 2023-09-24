@@ -11,6 +11,7 @@ struct BoardStatesView: View {
     var board: Board
 
     var body: some View {
+        // TODO: right click to rename
         Text("\(board.title)")
         Spacer()
         let backlogCount = board.cards.filter { $0.cardState == "Backlog" }.count

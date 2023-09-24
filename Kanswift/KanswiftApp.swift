@@ -5,8 +5,8 @@
 //  Created by Kadin Sayani on 2023-09-11.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct KanswiftApp: App {
@@ -23,7 +23,7 @@ struct KanswiftApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-    
+
     @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
 
     var body: some Scene {
@@ -32,19 +32,9 @@ struct KanswiftApp: App {
         }
         .modelContainer(sharedModelContainer)
         .commands {
-            CommandMenu("Actions") {
-                Button("Add Board") {
-                   // TODO: implement functionality and keyboard shortcut
-                }
-                Button("Add Card") {
-                    // TODO: implement functionality and keyboard shortcut
-                }
-            }
-        }
-        .commands {
             TextEditingCommands()
         }
-        
+
         MenuBarExtra("Kanswift Menu Bar Extra", systemImage: "rectangle.split.3x1", isInserted: $showMenuBarExtra) {
             StatusMenu().modelContainer(sharedModelContainer)
         }.menuBarExtraStyle(.window)

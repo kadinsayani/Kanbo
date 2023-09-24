@@ -46,10 +46,7 @@ struct ContentView: View {
                 Text("Select a Board")
             }
         }.onAppear {
-            // default selection of newest board
-            if let mostRecentBoard = boards.first {
-                selectedBoard = mostRecentBoard
-            }
+            getNewestBoard()
         }
         .sheet(isPresented: $isAddingBoard) {
             BoardEditorView(isPresented: $isAddingBoard)
@@ -71,13 +68,15 @@ struct ContentView: View {
             } catch {
                 print(error.localizedDescription)
             }
-            if let mostRecentBoard = boards.first {
-                selectedBoard = mostRecentBoard
-            }
+            getNewestBoard()
         }
     }
 
-    // TODO: right click to rename board
+    private func getNewestBoard() {
+        if let mostRecentBoard = boards.first {
+            selectedBoard = mostRecentBoard
+        }
+    }
 }
 
 // #Preview {
