@@ -16,17 +16,28 @@ struct BoardColumnView: View {
     @State var isPresented = false
 
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                Text(state).font(.title)
-                ForEach(cards.filter { $0.cardState == state }) { card in
-                    CardView(card: card).onTapGesture { selectedCard = card; isPresented = true }
+        VStack {
+            Text(state)
+                .font(.title)
+                .padding(.horizontal)
+
+            ScrollView {
+                LazyVStack(spacing: 8) {
+                    ForEach(cards.filter { $0.cardState == state }) { card in
+                        CardView(card: card)
+                            .onTapGesture {
+                                selectedCard = card
+                                isPresented = true
+                            }
+                    }
                 }
+                .padding(.horizontal)
             }
-            Spacer()
-        }.sheet(item: $selectedCard) { card in
+        }
+        .sheet(item: $selectedCard) { card in
             CardEditorView(board: board, card: card, isPresented: $isPresented)
-        }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
+                .keyboardShortcut(.defaultAction)
+        }
     }
 }
 

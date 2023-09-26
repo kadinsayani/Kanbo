@@ -10,7 +10,14 @@ import SwiftUI
 struct CardView: View {
     var card: Card
 
+    let calendar = Calendar.current
+    let currentDate = Date()
+
     var body: some View {
+        let components = calendar.dateComponents([.day, .hour], from: currentDate, to: card.dueDate)
+        let days = components.day ?? 0
+        let hours = components.hour ?? 0
+
         let color: String = switch card.cardState {
         case "Backlog":
             "kanswift.orange"
@@ -23,12 +30,6 @@ struct CardView: View {
         default:
             "kanswift.orange"
         }
-        let calendar = Calendar.current
-        let currentDate = Date()
-        let components = calendar.dateComponents([.day, .hour], from: currentDate, to: card.dueDate)
-
-        let days = components.day ?? 0
-        let hours = components.hour ?? 0
 
         ZStack {
             RoundedRectangle(cornerRadius: 5).stroke(Color(color), lineWidth: 1).frame(width: 150, height: 100)
@@ -36,7 +37,11 @@ struct CardView: View {
                 Spacer()
                 Text(card.cardTitle).font(.headline)
                 Spacer()
-                Text("\(Image(systemName: "timer.circle")) \(days) days \(hours) hours")
+                if days < 0 && hours < 0 {
+                    Text("\(Image(systemName: "timer.circle")) \(days) days, \(hours) hours").foregroundStyle(Color(.red))
+                } else {
+                    Text("\(Image(systemName: "timer.circle")) \(days) days, \(hours) hours")
+                }
                 Spacer()
             }
             Rectangle()

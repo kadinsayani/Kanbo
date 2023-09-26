@@ -28,12 +28,12 @@ struct KanswiftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
-        .modelContainer(sharedModelContainer)
-        .commands {
-            TextEditingCommands()
-        }
+            ContentView().frame(minWidth: 1000, minHeight: 600)
+        }.windowResizability(.contentSize)
+            .modelContainer(sharedModelContainer)
+            .commands {
+                TextEditingCommands()
+            }
 
         MenuBarExtra("Kanswift Menu Bar Extra", systemImage: "rectangle.split.3x1", isInserted: $showMenuBarExtra) {
             StatusMenu().modelContainer(sharedModelContainer)
