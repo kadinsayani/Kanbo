@@ -37,7 +37,7 @@ struct CardView: View {
                 Spacer()
                 Text(card.cardTitle).font(.headline)
                 Spacer()
-                if days < 0 && hours < 0 {
+                if days < 0 && hours <= 0 {
                     Text("\(Image(systemName: "timer.circle")) \(days) days, \(hours) hours").foregroundStyle(Color(.red))
                 } else {
                     Text("\(Image(systemName: "timer.circle")) \(days) days, \(hours) hours")
