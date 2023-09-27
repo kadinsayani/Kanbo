@@ -36,17 +36,35 @@ struct CardEditorView: View {
                 }
             }.pickerStyle(.palette).padding(10)
             Spacer()
-            Button("Save") {
-                withAnimation {
-                    board.cards.append(card)
-                    isPresented = false
-                    dismiss()
-                    do {
-                        try modelContext.save()
-                    } catch {
-                        print(error.localizedDescription)
+            HStack {
+                Spacer()
+                Button("Save") {
+                    withAnimation {
+                        board.cards.append(card)
+                        isPresented = false
+                        dismiss()
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
                     }
                 }
+                Spacer()
+                Button {
+                    withAnimation {
+                        if let ownerBoard = card.board {
+                            ownerBoard.cards.removeAll { $0.id == card.id }
+                        }
+                        dismiss()
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                } label: { Image(systemName: "trash.circle") }
+                Spacer()
             }
             Spacer()
         }

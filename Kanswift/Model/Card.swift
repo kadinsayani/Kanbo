@@ -16,6 +16,7 @@ final class Card {
     var cardState: String
     var createdAt: Date
     var dueDate: Date
+    var board: Board?
 
     init(cardTitle: String = "", cardDescription: String = "", cardState: String = "Backlog", createdAt: Date = Date(), dueDate: Date) {
         self.id = UUID()

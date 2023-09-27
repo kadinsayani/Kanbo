@@ -37,9 +37,6 @@ struct BoardView: View {
                 Button(action: addCard) {
                     Label("Add Card", systemImage: "plus")
                 }.keyboardShortcut("c")
-                Button(role: .destructive, action: deleteCard) {
-                    Label("Delete Card", systemImage: "trash")
-                }.keyboardShortcut(.delete)
             }
         }.sheet(isPresented: $isPresented) {
             let newCard = Card(cardTitle: "", cardDescription: "", cardState: "Backlog", createdAt: Date(), dueDate: Date())
@@ -49,20 +46,6 @@ struct BoardView: View {
 
     private func addCard() {
         isPresented = true
-    }
-
-    private func deleteCard() {
-        // TODO: fix implementation (highlight selected card)
-        withAnimation {
-            if let selectedCard = selectedCard {
-                board.cards.removeAll { card in card.id == selectedCard.id }
-            }
-            do {
-                try modelContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
     }
 }
 
