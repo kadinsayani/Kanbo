@@ -13,8 +13,7 @@ final class Board {
     @Attribute(.unique) var id: UUID
     var title: String
     var timestamp: Date
-    @Relationship(deleteRule: .cascade, inverse: \Card.board)
-    var cards = [Card]()
+    var cards: [Card]
 
     init(title: String, timestamp: Date = Date(), cards: [Card] = []) {
         self.id = UUID()

@@ -39,6 +39,14 @@ struct ContentView: View {
                     }.keyboardShortcut(.delete)
                 }
             }
+            .contextMenu {
+                Button(action: renameBoard) {
+                    Label("Rename", systemImage: "return")
+                }
+                Button(role: .destructive, action: deleteBoard) {
+                    Label("Delete", systemImage: "trash.circle")
+                }
+            }
         } detail: {
             if let selectedBoard = selectedBoard {
                 BoardView(board: selectedBoard, cards: selectedBoard.cards)
@@ -59,6 +67,7 @@ struct ContentView: View {
 
     private func deleteBoard() {
         // TODO: fix bug after all deleted (should show detail)
+        // TODO: fix delete board bug
         withAnimation {
             if let selectedBoard = selectedBoard {
                 modelContext.delete(selectedBoard)
@@ -76,6 +85,11 @@ struct ContentView: View {
         if let mostRecentBoard = boards.first {
             selectedBoard = mostRecentBoard
         }
+    }
+
+    private func renameBoard() {
+        // TODO: renameBoard implementatin
+        print("renaming board")
     }
 }
 
