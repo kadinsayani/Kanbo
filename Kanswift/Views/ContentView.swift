@@ -9,17 +9,18 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var navigationContext = NavigationContext()
     @Environment(\.modelContext) private var modelContext
     // sorted by newest on top
     @Query(sort: \Board.timestamp, order: .reverse, animation: .smooth) private var boards: [Board]
 
     @State private var isAddingBoard = false
-    @State private var selectedBoard: Board?
+    @State private var showingCommandPalette = false
 
     var body: some View {
         NavigationSplitView {
-            List(selection: $selectedBoard) {
-                ForEach(boards) { board in
+            ScrollView {
+                ForEach(boards, id: \.id) { board in
                     NavigationLink {
                         BoardView(board: board, cards: board.cards)
                     } label: {
@@ -37,6 +38,9 @@ struct ContentView: View {
                     Button(role: .destructive, action: deleteBoard) {
                         Label("Delete Board", systemImage: "trash")
                     }.keyboardShortcut(.delete)
+                    Button(action: { showingCommandPalette = true }) {
+                        Label("Command Palette", systemImage: "command.square.fill")
+                    }.keyboardShortcut("p")
                 }
             }
             .contextMenu {
@@ -48,7 +52,7 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            if let selectedBoard = selectedBoard {
+            if let selectedBoard = navigationContext.selectedBoard {
                 BoardView(board: selectedBoard, cards: selectedBoard.cards)
             } else {
                 Text("Select a Board")
@@ -59,6 +63,9 @@ struct ContentView: View {
         .sheet(isPresented: $isAddingBoard) {
             BoardEditorView(isPresented: $isAddingBoard)
         }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
+        .sheet(isPresented: $showingCommandPalette) {
+            CommandPaletteView(showingCommandPalette: $showingCommandPalette, command: "")
+        }.keyboardShortcut(.defaultAction)
     }
 
     private func addBoard() {
@@ -67,9 +74,8 @@ struct ContentView: View {
 
     private func deleteBoard() {
         // TODO: fix bug after all deleted (should show detail)
-        // TODO: fix delete board bug
         withAnimation {
-            if let selectedBoard = selectedBoard {
+            if let selectedBoard = navigationContext.selectedBoard {
                 modelContext.delete(selectedBoard)
             }
             do {
@@ -83,7 +89,7 @@ struct ContentView: View {
 
     private func getNewestBoard() {
         if let mostRecentBoard = boards.first {
-            selectedBoard = mostRecentBoard
+            navigationContext.selectedBoard = mostRecentBoard
         }
     }
 

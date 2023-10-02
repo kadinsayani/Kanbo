@@ -10,7 +10,7 @@ import SwiftUI
 
 struct StatusMenu: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Board.timestamp) private var boards: [Board]
+    @Query(sort: \Board.timestamp, order: .reverse, animation: .smooth) private var boards: [Board]
 
     var body: some View {
         VStack {
