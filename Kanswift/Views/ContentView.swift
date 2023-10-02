@@ -9,29 +9,36 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var navigationContext = NavigationContext()
     @Environment(\.modelContext) private var modelContext
     // sorted by newest on top
     @Query(sort: \Board.timestamp, order: .reverse, animation: .smooth) private var boards: [Board]
 
     @State private var isAddingBoard = false
     @State private var showingCommandPalette = false
+    @State private var selectedBoard: Board?
 
     var body: some View {
         NavigationSplitView {
             ScrollView {
                 ForEach(boards, id: \.id) { board in
-                    NavigationLink {
-                        BoardView(board: board, cards: board.cards)
-                    } label: {
-                        // state counts
-                        BoardStatesView(board: board)
-                    }
+                    Button(action: {
+                        selectedBoard = board
+                    }) {
+                        NavigationLink(destination: BoardView(board: board, cards: board.cards)) {
+                            BoardStatesView(board: board)
+                                .cornerRadius(5)
+                                .padding(5)
+                                .font(selectedBoard == board ? .headline : .subheadline)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .contentShape(Rectangle())
+                    }.padding(5).cornerRadius(5)
                 }
             }
             .navigationSplitViewColumnWidth(min: 260, ideal: 260)
             .toolbar {
                 ToolbarItemGroup {
+                    // TODO: getNewestBoard() after add
                     Button(action: addBoard) {
                         Label("Add Board", systemImage: "plus")
                     }.keyboardShortcut("b")
@@ -52,7 +59,7 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            if let selectedBoard = navigationContext.selectedBoard {
+            if let selectedBoard = selectedBoard {
                 BoardView(board: selectedBoard, cards: selectedBoard.cards)
             } else {
                 Text("Select a Board")
@@ -73,28 +80,30 @@ struct ContentView: View {
     }
 
     private func deleteBoard() {
-        // TODO: fix bug after all deleted (should show detail)
-        withAnimation {
-            if let selectedBoard = navigationContext.selectedBoard {
+        if let selectedBoard = selectedBoard {
+            print("Deleting board: \(selectedBoard.title)")
+            withAnimation {
                 modelContext.delete(selectedBoard)
+                do {
+                    try modelContext.save()
+                } catch {
+                    print("Error deleting board: \(error.localizedDescription)")
+                }
             }
-            do {
-                try modelContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-            getNewestBoard()
         }
+        getNewestBoard()
     }
 
-    private func getNewestBoard() {
+    public func getNewestBoard() {
         if let mostRecentBoard = boards.first {
-            navigationContext.selectedBoard = mostRecentBoard
+            selectedBoard = mostRecentBoard
+        } else {
+            selectedBoard = nil
         }
     }
 
     private func renameBoard() {
-        // TODO: renameBoard implementatin
+        // TODO: renameBoard implementation
         print("renaming board")
     }
 }

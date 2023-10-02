@@ -19,7 +19,6 @@
 		B78CD95F2AB7F59400C83555 /* BoardColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78CD95E2AB7F59400C83555 /* BoardColumnView.swift */; };
 		B7A6DCA82AB031AA00A7C03B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A6DCA72AB031AA00A7C03B /* CardView.swift */; };
 		B7BDDA052ACA625700611193 /* CommandPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDDA042ACA625700611193 /* CommandPaletteView.swift */; };
-		B7BDDA092ACA69C500611193 /* NavigationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDDA082ACA69C500611193 /* NavigationContext.swift */; };
 		B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC22AB24D9B007838A5 /* Board.swift */; };
 		B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */; };
 		B7FAF53E2AB6EBFA00212A78 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FAF53D2AB6EBFA00212A78 /* StatusMenu.swift */; };
@@ -40,7 +39,6 @@
 		B78CD95E2AB7F59400C83555 /* BoardColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardColumnView.swift; sourceTree = "<group>"; };
 		B7A6DCA72AB031AA00A7C03B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B7BDDA042ACA625700611193 /* CommandPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPaletteView.swift; sourceTree = "<group>"; };
-		B7BDDA082ACA69C500611193 /* NavigationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationContext.swift; path = Kanswift/Views/NavigationContext.swift; sourceTree = SOURCE_ROOT; };
 		B7CAADC22AB24D9B007838A5 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B7CAADC42AB24ECD007838A5 /* BoardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditorView.swift; sourceTree = "<group>"; };
 		B7FAF53D2AB6EBFA00212A78 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 		B7ED2C3B2AB03CDB00E7C5D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B7BDDA082ACA69C500611193 /* NavigationContext.swift */,
 				B77824182AAF82F1007DCDC3 /* Card.swift */,
 				B7CAADC22AB24D9B007838A5 /* Board.swift */,
 			);
@@ -200,7 +197,6 @@
 				B7CAADC52AB24ECD007838A5 /* BoardEditorView.swift in Sources */,
 				B7704DBD2AB16D7500B9A4B4 /* BoardView.swift in Sources */,
 				B78CD95D2AB7F50100C83555 /* BoardStatesView.swift in Sources */,
-				B7BDDA092ACA69C500611193 /* NavigationContext.swift in Sources */,
 				B77824192AAF82F1007DCDC3 /* Card.swift in Sources */,
 				B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */,
 				B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */,
