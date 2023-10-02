@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CardView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     var card: Card
 
     let calendar = Calendar.current

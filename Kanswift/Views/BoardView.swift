@@ -18,6 +18,7 @@ struct BoardView: View {
     @State private var selectedCard: Card?
 
     var body: some View {
+        // TODO: iOS build target
         // TODO: moving items drag and drop + keyboard shortcuts cmd > and cmd <
         let cards = board.cards.sorted(by: { (first: Card, second: Card) -> Bool in first.createdAt < second.createdAt })
         NavigationStack {

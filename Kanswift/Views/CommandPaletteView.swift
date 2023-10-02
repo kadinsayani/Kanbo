@@ -12,7 +12,8 @@ struct CommandPaletteView: View {
     @State var command: String
 
     var body: some View {
-        TextField("Search for a command", text: $command)
+        // TODO:
+        TextField("Search for a command", text: $command).padding(5)
     }
 }
 
