@@ -28,7 +28,7 @@ struct KanswiftApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().frame(minWidth: 900, minHeight: 450)
         }
         .modelContainer(sharedModelContainer)
         .commands {

@@ -32,7 +32,6 @@ struct CardView: View {
         }
 
         ZStack {
-            // TODO: fix sizing at smaller window sizes
             RoundedRectangle(cornerRadius: 5).stroke(Color(color), lineWidth: 1).frame(width: 150, height: 100)
             VStack {
                 Spacer()
