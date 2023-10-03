@@ -1,6 +1,6 @@
 //
-//  KanswiftApp.swift
-//  Kanswift
+//  KanboApp.swift
+//  Kanbo
 //
 //  Created by Kadin Sayani on 2023-09-11.
 //
@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct KanswiftApp: App {
+struct KanboApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Card.self,
@@ -35,7 +35,7 @@ struct KanswiftApp: App {
             TextEditingCommands()
         }
 #if os(macOS)
-        MenuBarExtra("Kanswift Menu Bar Extra", systemImage: "rectangle.split.3x1", isInserted: $showMenuBarExtra) {
+        MenuBarExtra("Kanbo Menu Bar Extra", systemImage: "rectangle.split.3x1", isInserted: $showMenuBarExtra) {
             StatusMenu().modelContainer(sharedModelContainer)
         }.menuBarExtraStyle(.window)
 #endif

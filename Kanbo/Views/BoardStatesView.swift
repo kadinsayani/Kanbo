@@ -1,6 +1,6 @@
 //
 //  BoardStatesView.swift
-//  Kanswift
+//  Kanbo
 //
 //  Created by Kadin Sayani on 2023-09-17.
 //

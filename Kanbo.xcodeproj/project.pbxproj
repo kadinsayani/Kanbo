@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B7704DBD2AB16D7500B9A4B4 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */; };
-		B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */; };
+		B77824152AAF82F1007DCDC3 /* KanboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824142AAF82F1007DCDC3 /* KanboApp.swift */; };
 		B77824172AAF82F1007DCDC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824162AAF82F1007DCDC3 /* ContentView.swift */; };
 		B77824192AAF82F1007DCDC3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77824182AAF82F1007DCDC3 /* Card.swift */; };
 		B778241B2AAF82F3007DCDC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B778241A2AAF82F3007DCDC3 /* Assets.xcassets */; };
@@ -26,13 +26,13 @@
 
 /* Begin PBXFileReference section */
 		B7704DBC2AB16D7500B9A4B4 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		B77824112AAF82F1007DCDC3 /* Kanswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanswiftApp.swift; sourceTree = "<group>"; };
+		B77824112AAF82F1007DCDC3 /* Kanbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kanbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77824142AAF82F1007DCDC3 /* KanboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanboApp.swift; sourceTree = "<group>"; };
 		B77824162AAF82F1007DCDC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B77824182AAF82F1007DCDC3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		B778241A2AAF82F3007DCDC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kanswift.entitlements; sourceTree = "<group>"; };
+		B778241F2AAF82F3007DCDC3 /* Kanbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kanbo.entitlements; sourceTree = "<group>"; };
 		B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditorView.swift; sourceTree = "<group>"; };
 		B78CD95A2AB7ED9F00C83555 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		B78CD95C2AB7F50100C83555 /* BoardStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStatesView.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		B77824082AAF82F1007DCDC3 = {
 			isa = PBXGroup;
 			children = (
-				B77824132AAF82F1007DCDC3 /* Kanswift */,
+				B77824132AAF82F1007DCDC3 /* Kanbo */,
 				B77824122AAF82F1007DCDC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,23 +66,23 @@
 		B77824122AAF82F1007DCDC3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B77824112AAF82F1007DCDC3 /* Kanswift.app */,
+				B77824112AAF82F1007DCDC3 /* Kanbo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B77824132AAF82F1007DCDC3 /* Kanswift */ = {
+		B77824132AAF82F1007DCDC3 /* Kanbo */ = {
 			isa = PBXGroup;
 			children = (
 				B7ED2C3C2AB03CF300E7C5D9 /* Views */,
 				B7ED2C3B2AB03CDB00E7C5D9 /* Model */,
-				B77824142AAF82F1007DCDC3 /* KanswiftApp.swift */,
+				B77824142AAF82F1007DCDC3 /* KanboApp.swift */,
 				B78CD95A2AB7ED9F00C83555 /* Credits.rtf */,
 				B778241A2AAF82F3007DCDC3 /* Assets.xcassets */,
-				B778241F2AAF82F3007DCDC3 /* Kanswift.entitlements */,
+				B778241F2AAF82F3007DCDC3 /* Kanbo.entitlements */,
 				B778241C2AAF82F3007DCDC3 /* Preview Content */,
 			);
-			path = Kanswift;
+			path = Kanbo;
 			sourceTree = "<group>";
 		};
 		B778241C2AAF82F3007DCDC3 /* Preview Content */ = {
@@ -121,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B77824102AAF82F1007DCDC3 /* Kanswift */ = {
+		B77824102AAF82F1007DCDC3 /* Kanbo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B77824222AAF82F3007DCDC3 /* Build configuration list for PBXNativeTarget "Kanswift" */;
+			buildConfigurationList = B77824222AAF82F3007DCDC3 /* Build configuration list for PBXNativeTarget "Kanbo" */;
 			buildPhases = (
 				B778240D2AAF82F1007DCDC3 /* Sources */,
 				B778240E2AAF82F1007DCDC3 /* Frameworks */,
@@ -133,9 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = Kanswift;
+			name = Kanbo;
 			productName = Kanswift;
-			productReference = B77824112AAF82F1007DCDC3 /* Kanswift.app */;
+			productReference = B77824112AAF82F1007DCDC3 /* Kanbo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -153,7 +153,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B778240C2AAF82F1007DCDC3 /* Build configuration list for PBXProject "Kanswift" */;
+			buildConfigurationList = B778240C2AAF82F1007DCDC3 /* Build configuration list for PBXProject "Kanbo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -166,7 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B77824102AAF82F1007DCDC3 /* Kanswift */,
+				B77824102AAF82F1007DCDC3 /* Kanbo */,
 			);
 		};
 /* End PBXProject section */
@@ -199,7 +199,7 @@
 				B78CD95D2AB7F50100C83555 /* BoardStatesView.swift in Sources */,
 				B77824192AAF82F1007DCDC3 /* Card.swift in Sources */,
 				B7CAADC32AB24D9B007838A5 /* Board.swift in Sources */,
-				B77824152AAF82F1007DCDC3 /* KanswiftApp.swift in Sources */,
+				B77824152AAF82F1007DCDC3 /* KanboApp.swift in Sources */,
 				B7A6DCA82AB031AA00A7C03B /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,11 +331,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Kanswift/Kanswift.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Kanbo/Kanbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Kanswift/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Kanbo/Preview Content\"";
 				DEVELOPMENT_TEAM = 9DB23BX9MM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -348,7 +348,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kadinsayani.Kanswift;
+				PRODUCT_BUNDLE_IDENTIFIER = kadinsayani.Kanbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -364,11 +364,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Kanswift/Kanswift.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Kanbo/Kanbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Kanswift/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Kanbo/Preview Content\"";
 				DEVELOPMENT_TEAM = 9DB23BX9MM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -381,7 +381,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kadinsayani.Kanswift;
+				PRODUCT_BUNDLE_IDENTIFIER = kadinsayani.Kanbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -394,7 +394,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B778240C2AAF82F1007DCDC3 /* Build configuration list for PBXProject "Kanswift" */ = {
+		B778240C2AAF82F1007DCDC3 /* Build configuration list for PBXProject "Kanbo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B77824202AAF82F3007DCDC3 /* Debug */,
@@ -403,7 +403,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B77824222AAF82F3007DCDC3 /* Build configuration list for PBXNativeTarget "Kanswift" */ = {
+		B77824222AAF82F3007DCDC3 /* Build configuration list for PBXNativeTarget "Kanbo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B77824232AAF82F3007DCDC3 /* Debug */,

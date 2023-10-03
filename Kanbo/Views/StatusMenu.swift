@@ -1,6 +1,6 @@
 //
 //  StatusMenu.swift
-//  Kanswift
+//  Kanbo
 //
 //  Created by Kadin Sayani on 2023-09-17.
 //
@@ -14,7 +14,7 @@ struct StatusMenu: View {
 
     var body: some View {
         VStack {
-            Text("Kanswift").font(.headline).padding(10)
+            Text("Kanbo").font(.headline).padding(10)
             HStack {
                 Text("Boards").underline()
                 Spacer()

@@ -1,6 +1,6 @@
 //
 //  CommandPaletteView.swift
-//  Kanswift
+//  Kanbo
 //
 //  Created by Kadin Sayani on 2023-10-01.
 //
