@@ -34,30 +34,27 @@ struct ContentView: View {
                         .contentShape(Rectangle())
                     }.padding(5).cornerRadius(5)
                 }
-            }
-            .navigationSplitViewColumnWidth(min: 260, ideal: 260)
-            .toolbar {
-                ToolbarItemGroup {
-                    // TODO: getNewestBoard() after add
-                    Button(action: addBoard) {
-                        Label("Add Board", systemImage: "plus")
-                    }.keyboardShortcut("b")
+            }.listStyle(SidebarListStyle())
+                .navigationSplitViewColumnWidth(min: 260, ideal: 260)
+                .toolbar {
+                    ToolbarItemGroup {
+                        // TODO: getNewestBoard() after add
+                        Button(action: addBoard) {
+                            Label("Add Board", systemImage: "plus")
+                        }.keyboardShortcut("b")
+                        Button(action: { showingCommandPalette = true }) {
+                            Label("Command Palette", systemImage: "command.square")
+                        }.keyboardShortcut("p")
+                    }
+                }
+                .contextMenu {
+                    Button(action: renameBoard) {
+                        Label("Rename", systemImage: "return")
+                    }
                     Button(role: .destructive, action: deleteBoard) {
-                        Label("Delete Board", systemImage: "trash")
-                    }.keyboardShortcut(.delete)
-                    Button(action: { showingCommandPalette = true }) {
-                        Label("Command Palette", systemImage: "command.square.fill")
-                    }.keyboardShortcut("p")
+                        Label("Delete", systemImage: "trash.circle")
+                    }
                 }
-            }
-            .contextMenu {
-                Button(action: renameBoard) {
-                    Label("Rename", systemImage: "return")
-                }
-                Button(role: .destructive, action: deleteBoard) {
-                    Label("Delete", systemImage: "trash.circle")
-                }
-            }
         } detail: {
             if let selectedBoard = selectedBoard {
                 BoardView(board: selectedBoard, cards: selectedBoard.cards)
