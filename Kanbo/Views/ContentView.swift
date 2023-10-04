@@ -38,21 +38,17 @@ struct ContentView: View {
                 .navigationSplitViewColumnWidth(min: 260, ideal: 260)
                 .toolbar {
                     ToolbarItemGroup {
-                        // TODO: getNewestBoard() after add
-                        Button(action: addBoard) {
-                            Label("Add Board", systemImage: "plus")
+                        Button(action: createBoard) {
+                            Label("Create Board", systemImage: "plus")
                         }.keyboardShortcut("b")
-                        Button(action: { showingCommandPalette = true }) {
-                            Label("Command Palette", systemImage: "command.square")
-                        }.keyboardShortcut("p")
+//                        Button(action: { showingCommandPalette = true }) {
+//                            Label("Command Palette", systemImage: "command.square")
+//                        }.keyboardShortcut("p")
                     }
                 }
                 .contextMenu {
-                    Button(action: renameBoard) {
-                        Label("Rename", systemImage: "return")
-                    }
                     Button(role: .destructive, action: deleteBoard) {
-                        Label("Delete", systemImage: "trash.circle")
+                        Label("Delete", systemImage: "trash.circle").keyboardShortcut("d")
                     }
                 }
         } detail: {
@@ -72,8 +68,9 @@ struct ContentView: View {
         }.keyboardShortcut(.defaultAction)
     }
 
-    private func addBoard() {
+    private func createBoard() {
         isAddingBoard = true
+        getNewestBoard()
     }
 
     private func deleteBoard() {
@@ -83,6 +80,7 @@ struct ContentView: View {
                 modelContext.delete(selectedBoard)
                 do {
                     try modelContext.save()
+                    getNewestBoard()
                 } catch {
                     print("Error deleting board: \(error.localizedDescription)")
                 }
@@ -97,10 +95,6 @@ struct ContentView: View {
         } else {
             selectedBoard = nil
         }
-    }
-
-    private func renameBoard() {
-        // TODO: renameBoard implementation
     }
 }
 
