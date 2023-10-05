@@ -19,18 +19,18 @@ struct CardView: View {
             HStack {
                 Button(action: backState) {
                     Image(systemName: "arrow.left").opacity(overButton ? 1 : 0)
-                }.buttonStyle(PlainButtonStyle()).padding(5)
+                }.buttonStyle(PlainButtonStyle()).padding(1)
                 Spacer()
                 Button(action: forwardState) {
                     Image(systemName: "arrow.right").opacity(overButton ? 1 : 0)
 
-                }.buttonStyle(PlainButtonStyle()).padding(5)
-            }
-            VStack {
+                }.buttonStyle(PlainButtonStyle()).padding(1)
+            }.frame(width: 150, height: 100)
+            VStack(alignment: .center) {
                 Spacer()
-                Text(card.cardTitle).font(.headline)
+                Text(card.cardTitle).font(.headline).fixedSize(horizontal: false, vertical: false)
                 Spacer()
-            }
+            }.frame(width: 100, height: 100)
             Rectangle()
                 .frame(width: 150, height: 100)
                 .opacity(0.000000001)
