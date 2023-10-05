@@ -33,6 +33,7 @@
 		B778241D2AAF82F3007DCDC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B778241F2AAF82F3007DCDC3 /* Kanbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kanbo.entitlements; sourceTree = "<group>"; };
 		B778242B2AAFC54F007DCDC3 /* CardEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEditorView.swift; sourceTree = "<group>"; };
+		B78793FD2ACF5DB1004C9DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B78CD95A2AB7ED9F00C83555 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		B78CD95C2AB7F50100C83555 /* BoardStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardStatesView.swift; sourceTree = "<group>"; };
 		B7A6DCA72AB031AA00A7C03B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -72,6 +73,7 @@
 		B77824132AAF82F1007DCDC3 /* Kanbo */ = {
 			isa = PBXGroup;
 			children = (
+				B78793FD2ACF5DB1004C9DAE /* Info.plist */,
 				B7ED2C3C2AB03CF300E7C5D9 /* Views */,
 				B7ED2C3B2AB03CDB00E7C5D9 /* Model */,
 				B77824142AAF82F1007DCDC3 /* KanboApp.swift */,
@@ -336,6 +338,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kanbo/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -368,6 +371,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kanbo/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
