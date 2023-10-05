@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var isAddingBoard = false
     @State private var showingCommandPalette = false
     @State private var selectedBoard: Board?
+    @State private var title = ""
 
     var body: some View {
         NavigationSplitView {
@@ -61,7 +62,21 @@ struct ContentView: View {
             getNewestBoard()
         }
         .sheet(isPresented: $isAddingBoard) {
-            BoardEditorView(isPresented: $isAddingBoard)
+            VStack {
+                Spacer()
+                TextField("Board Title", text: $title).padding(10).frame(height: 50)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title)
+                Spacer()
+                Button("Save") {
+                    let newBoard = Board(title: title, timestamp: Date(), cards: [])
+                    modelContext.insert(newBoard)
+                    isAddingBoard = false
+                    selectedBoard = newBoard
+                }
+                .padding()
+            }
+            .frame(width: 300, height: 200)
         }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
         .sheet(isPresented: $showingCommandPalette) {
             CommandPaletteView(showingCommandPalette: $showingCommandPalette, command: "")
@@ -70,7 +85,6 @@ struct ContentView: View {
 
     private func createBoard() {
         isAddingBoard = true
-        getNewestBoard()
     }
 
     private func deleteBoard() {

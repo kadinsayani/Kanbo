@@ -28,7 +28,7 @@ struct KanboApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView().frame(minWidth: 900, minHeight: 450)
+            ContentView().frame(minWidth: 1000, minHeight: 500)
         }
         .modelContainer(sharedModelContainer)
         .commands {

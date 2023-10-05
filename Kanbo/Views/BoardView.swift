@@ -11,6 +11,11 @@ import SwiftUI
 struct BoardView: View {
     @Environment(\.modelContext) private var modelContext
 
+    let stateBacklog = "Backlog"
+    let stateDoing = "Doing"
+    let stateReview = "Review"
+    let stateDone = "Done"
+
     var board: Board
     @State var cards: [Card]
 
@@ -21,14 +26,98 @@ struct BoardView: View {
         let cards = board.cards.sorted(by: { (first: Card, second: Card) -> Bool in first.createdAt < second.createdAt })
         NavigationStack {
             Spacer()
-            Text(board.title).font(/*@START_MENU_TOKEN@*/ .title/*@END_MENU_TOKEN@*/)
+            Text(board.title).font(.title)
             Spacer()
             ScrollView {
                 HStack {
-                    BoardColumnView(board: board, cards: cards, state: "Backlog")
-                    BoardColumnView(board: board, cards: cards, state: "Doing")
-                    BoardColumnView(board: board, cards: cards, state: "Review")
-                    BoardColumnView(board: board, cards: cards, state: "Done")
+                    VStack {
+                        Text(stateBacklog)
+                            .font(.title)
+                            .padding(.horizontal)
+
+                        ScrollView {
+                            LazyVStack(spacing: 8) {
+                                ForEach(cards.filter { $0.cardState == stateBacklog }) { card in
+                                    CardView(card: card)
+                                        .onTapGesture {
+                                            selectedCard = card
+                                            isPresented = true
+                                        }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
+                    .sheet(item: $selectedCard) { card in
+                        CardEditorView(board: board, card: card, isPresented: $isPresented)
+                            .keyboardShortcut(.defaultAction)
+                    }
+                    VStack {
+                        Text(stateDoing)
+                            .font(.title)
+                            .padding(.horizontal)
+
+                        ScrollView {
+                            LazyVStack(spacing: 8) {
+                                ForEach(cards.filter { $0.cardState == stateDoing }) { card in
+                                    CardView(card: card)
+                                        .onTapGesture {
+                                            selectedCard = card
+                                            isPresented = true
+                                        }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
+                    .sheet(item: $selectedCard) { card in
+                        CardEditorView(board: board, card: card, isPresented: $isPresented)
+                            .keyboardShortcut(.defaultAction)
+                    }
+                    VStack {
+                        Text(stateReview)
+                            .font(.title)
+                            .padding(.horizontal)
+
+                        ScrollView {
+                            LazyVStack(spacing: 8) {
+                                ForEach(cards.filter { $0.cardState == stateReview }) { card in
+                                    CardView(card: card)
+                                        .onTapGesture {
+                                            selectedCard = card
+                                            isPresented = true
+                                        }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
+                    .sheet(item: $selectedCard) { card in
+                        CardEditorView(board: board, card: card, isPresented: $isPresented)
+                            .keyboardShortcut(.defaultAction)
+                    }
+                    VStack {
+                        Text(stateDone)
+                            .font(.title)
+                            .padding(.horizontal)
+
+                        ScrollView {
+                            LazyVStack(spacing: 8) {
+                                ForEach(cards.filter { $0.cardState == stateDone }) { card in
+                                    CardView(card: card)
+                                        .onTapGesture {
+                                            selectedCard = card
+                                            isPresented = true
+                                        }
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    }
+                    .sheet(item: $selectedCard) { card in
+                        CardEditorView(board: board, card: card, isPresented: $isPresented)
+                            .keyboardShortcut(.defaultAction)
+                    }
                 }
             }
         }.toolbar {

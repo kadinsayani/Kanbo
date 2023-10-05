@@ -11,7 +11,7 @@ struct BoardStatesView: View {
     var board: Board
 
     var body: some View {
-        Text("\(board.title)")
+        Text("\(board.title)").fixedSize(horizontal: true, vertical: false)
         Spacer()
         let backlogCount = board.cards.filter { $0.cardState == "Backlog" }.count
         let backlogCountText = Text("\(backlogCount)").foregroundStyle(Color("kanswift.orange"))
@@ -21,7 +21,7 @@ struct BoardStatesView: View {
         let reviewCountText = Text("\(reviewCount)").foregroundStyle(Color("kanswift.white"))
         let doneCount = board.cards.filter { $0.cardState == "Done" }.count
         let doneCountText = Text("\(doneCount)").foregroundStyle(Color("kanswift.cyan"))
-        Text("\(backlogCountText) | \(doingCountText) | \(reviewCountText) | \(doneCountText)")
+        Text("\(backlogCountText) | \(doingCountText) | \(reviewCountText) | \(doneCountText)").fixedSize(horizontal: true, vertical: false)
     }
 }
 
