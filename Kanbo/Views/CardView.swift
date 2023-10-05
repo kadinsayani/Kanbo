@@ -36,7 +36,7 @@ struct CardView: View {
                 .opacity(0.000000001)
         }.onHover { over in
             overButton = over
-        }
+        }.onAppear { updateColors() }
     }
 
     private func forwardState() {
@@ -84,6 +84,21 @@ struct CardView: View {
             } catch {
                 print(error.localizedDescription)
             }
+        }
+    }
+
+    private func updateColors() {
+        switch card.cardState {
+            case "Backlog":
+                card.color = "kanswift.orange"
+            case "Doing":
+                card.color = "kanswift.purple"
+            case "Review":
+                card.color = "kanswift.white"
+            case "Done":
+                card.color = "kanswift.cyan"
+            default:
+                card.color = "kanswift.orange"
         }
     }
 }

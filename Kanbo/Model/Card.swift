@@ -28,17 +28,6 @@ final class Card {
         self.createdAt = createdAt
         self.startDate = startDate
         self.dueDate = dueDate
-        self.color = switch cardState {
-        case "Backlog":
-            "kanswift.orange"
-        case "Doing":
-            "kanswift.purple"
-        case "Review":
-            "kanswift.white"
-        case "Done":
-            "kanswift.cyan"
-        default:
-            "kanswift.orange"
-        }
+        self.color = "kanswift.orange"
     }
 }
