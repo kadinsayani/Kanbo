@@ -25,10 +25,15 @@ struct KanboApp: App {
     }()
 
     @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
+    @AppStorage("hasLaunched") var hasLaunched: Bool = false
 
     var body: some Scene {
         WindowGroup {
-            ContentView().frame(minWidth: 1000, minHeight: 500)
+            if hasLaunched {
+                ContentView().frame(minWidth: 1000, minHeight: 500)
+            } else {
+                WelcomeView()
+            }
         }
         .modelContainer(sharedModelContainer)
         .commands {

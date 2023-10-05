@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct Command {
+struct Command: Identifiable {
+    var id: UUID
     let name: String
     let action: () -> Void
+    let key: String
 }
 
 let commands = [
-    Command(name: "Create Board", action: { createBoard() }),
-    Command(name: "Add Card", action: { addCard() }),
+    Command(id: UUID(), name: "Create Board", action: { createBoard() }, key: "B"),
+    Command(id: UUID(), name: "Add Card", action: { addCard() }, key: "C"),
 ]
 
 struct CommandPaletteView: View {

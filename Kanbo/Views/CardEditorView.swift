@@ -28,6 +28,8 @@ struct CardEditorView: View {
                 .textFieldStyle(PlainTextFieldStyle())
                 .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10)
             Spacer()
+            DatePicker("Start Date: ", selection: $card.startDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.automatic).padding(10)
+            Spacer()
             DatePicker("Due Date: ", selection: $card.dueDate, displayedComponents: [.date, .hourAndMinute]).datePickerStyle(.automatic).padding(10)
             Spacer()
             Picker("State: ", selection: $card.cardState) {
