@@ -20,9 +20,15 @@ struct CardEditorView: View {
     var body: some View {
         VStack {
             Spacer()
-            TextField("Card title", text: $card.cardTitle, axis: .vertical).padding(10).frame(height: 50)
-                .textFieldStyle(PlainTextFieldStyle())
-                .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title)
+            HStack {
+                TextField("Card title", text: $card.cardTitle, axis: .vertical).padding(10).frame(height: 50)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title)
+                Button(action: dismissView) {
+                    Image(systemName: "xmark.circle.fill")
+                }.buttonStyle(PlainButtonStyle())
+                    .keyboardShortcut(.escape)
+            }
             Spacer()
             TextField("Card description", text: $card.cardDescription, axis: .vertical).padding(10).frame(height: 200)
                 .textFieldStyle(PlainTextFieldStyle())
@@ -43,34 +49,38 @@ struct CardEditorView: View {
                 Button("Save") {
                     withAnimation {
                         board.cards.append(card)
-                        isPresented = false
-                        dismiss()
+                        dismissView()
                         do {
                             try modelContext.save()
                         } catch {
                             print(error.localizedDescription)
                         }
                     }
-                }
+                }.keyboardShortcut(.defaultAction)
                 Spacer()
                 Button {
                     withAnimation {
                         if let ownerBoard = card.board {
                             ownerBoard.cards.removeAll { $0.id == card.id }
                         }
-                        dismiss()
+                        dismissView()
                         do {
                             try modelContext.save()
                         } catch {
                             print(error.localizedDescription)
                         }
                     }
-                } label: { Image(systemName: "trash.circle") }
+                } label: { Image(systemName: "trash.circle") }.keyboardShortcut(.delete)
                 Spacer()
             }
             Spacer()
         }
         .frame(width: 400, height: 500)
+    }
+
+    private func dismissView() {
+        isPresented = false
+        dismiss()
     }
 }
 

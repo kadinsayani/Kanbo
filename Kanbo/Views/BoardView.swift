@@ -21,6 +21,7 @@ struct BoardView: View {
 
     @State private var isPresented = false
     @State private var selectedCard: Card?
+    @State private var addingNew = false
 
     var body: some View {
         let cards = board.cards.sorted(by: { (first: Card, second: Card) -> Bool in first.createdAt < second.createdAt })
@@ -50,7 +51,6 @@ struct BoardView: View {
                     }
                     .sheet(item: $selectedCard) { card in
                         CardEditorView(board: board, card: card, isPresented: $isPresented)
-                            .keyboardShortcut(.defaultAction)
                     }
                     VStack {
                         Text(stateDoing)
@@ -72,7 +72,6 @@ struct BoardView: View {
                     }
                     .sheet(item: $selectedCard) { card in
                         CardEditorView(board: board, card: card, isPresented: $isPresented)
-                            .keyboardShortcut(.defaultAction)
                     }
                     VStack {
                         Text(stateReview)
@@ -94,7 +93,6 @@ struct BoardView: View {
                     }
                     .sheet(item: $selectedCard) { card in
                         CardEditorView(board: board, card: card, isPresented: $isPresented)
-                            .keyboardShortcut(.defaultAction)
                     }
                     VStack {
                         Text(stateDone)
@@ -116,7 +114,6 @@ struct BoardView: View {
                     }
                     .sheet(item: $selectedCard) { card in
                         CardEditorView(board: board, card: card, isPresented: $isPresented)
-                            .keyboardShortcut(.defaultAction)
                     }
                 }
             }
@@ -126,14 +123,14 @@ struct BoardView: View {
                     Label("Add Card", systemImage: "plus")
                 }.keyboardShortcut("c")
             }
-        }.sheet(isPresented: $isPresented) {
+        }.sheet(isPresented: $addingNew) {
             let newCard = Card(cardTitle: "", cardDescription: "", cardState: "Backlog", createdAt: Date(), dueDate: Date())
-            CardEditorView(board: board, card: newCard, isPresented: $isPresented)
+            CardEditorView(board: board, card: newCard, isPresented: $addingNew)
         }
     }
 
     private func addCard() {
-        isPresented = true
+        addingNew = true
     }
 }
 

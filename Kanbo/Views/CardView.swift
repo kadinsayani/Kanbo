@@ -15,7 +15,7 @@ struct CardView: View {
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 5).stroke(Color(card.color), lineWidth: 1).frame(width: 150, height: 100)
+            RoundedRectangle(cornerRadius: 5).stroke(Color(card.color), lineWidth: 1).frame(width: 200)
             HStack {
                 Button(action: backState) {
                     Image(systemName: "arrow.left").opacity(overButton ? 1 : 0)
@@ -25,14 +25,10 @@ struct CardView: View {
                     Image(systemName: "arrow.right").opacity(overButton ? 1 : 0)
 
                 }.buttonStyle(PlainButtonStyle()).padding(1)
-            }.frame(width: 150, height: 100)
-            VStack(alignment: .center) {
-                Spacer()
-                Text(card.cardTitle).font(.headline).fixedSize(horizontal: false, vertical: false)
-                Spacer()
-            }.frame(width: 100, height: 100)
+            }.frame(width: 200)
+            Text(card.cardTitle).font(.headline).frame(maxWidth: 200, minHeight: 100).lineLimit(nil)
             Rectangle()
-                .frame(width: 150, height: 100)
+                .frame(width: 200)
                 .opacity(0.000000001)
         }.onHover { over in
             overButton = over
