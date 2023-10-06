@@ -26,7 +26,9 @@ struct CardView: View {
 
                 }.buttonStyle(PlainButtonStyle()).padding(1)
             }.frame(width: 200)
+            Spacer()
             Text(card.cardTitle).font(.headline).frame(maxWidth: 200, minHeight: 100).lineLimit(nil)
+            Spacer()
             Rectangle()
                 .frame(width: 200)
                 .opacity(0.000000001)
