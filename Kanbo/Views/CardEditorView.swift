@@ -23,11 +23,13 @@ struct CardEditorView: View {
             HStack {
                 TextField("Card title", text: $card.cardTitle, axis: .vertical).padding(10).frame(height: 50)
                     .textFieldStyle(PlainTextFieldStyle())
-                    .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title)
+                    .cornerRadius(5).overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray)).padding(10).font(.title).lineLimit(nil)
+                Spacer()
                 Button(action: dismissView) {
                     Image(systemName: "xmark.circle.fill")
                 }.buttonStyle(PlainButtonStyle())
-                    .keyboardShortcut(.escape)
+                    .keyboardShortcut(.escape).padding(1)
+                Spacer()
             }
             Spacer()
             TextField("Card description", text: $card.cardDescription, axis: .vertical).padding(10).frame(height: 200)
