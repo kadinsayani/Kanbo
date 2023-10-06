@@ -129,7 +129,7 @@ struct BoardView: View {
         }.sheet(isPresented: $isPresented) {
             let newCard = Card(cardTitle: "", cardDescription: "", cardState: "Backlog", createdAt: Date(), dueDate: Date())
             CardEditorView(board: board, card: newCard, isPresented: $isPresented)
-        }.keyboardShortcut(/*@START_MENU_TOKEN@*/ .defaultAction/*@END_MENU_TOKEN@*/)
+        }
     }
 
     private func addCard() {
